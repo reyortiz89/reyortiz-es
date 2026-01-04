@@ -9,7 +9,7 @@ export default function HomePage() {
     <div style={{ width: "100%", height: "100vh" }}>
       <iframe
         title="Template home"
-        src="/template%20/index.html"
+        src="/template/index.html"
         style={{ width: "100%", height: "100%", border: 0 }}
       />
     </div>
