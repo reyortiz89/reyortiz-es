@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+
+    // iPortfolio reference template (do not lint vendored assets)
+    "public/template/**",
+    "public/template /**",
   ]),
 ]);
 

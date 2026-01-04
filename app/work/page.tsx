@@ -1,113 +1,77 @@
-/**
- * Work page - Selected projects and case studies
- */
 import type { Metadata } from "next";
-import { Container, Section, Card, Badge, CTA } from "@/components";
 import { profile } from "@/data/profile";
+import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
   title: `Work | ${profile.identity.name}`,
-  description: "Selected projects and work highlights from Reynier Ortiz.",
+  description: `Experience timeline for ${profile.identity.name}.`,
 };
 
-export default function Work() {
+export default function WorkPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <Section size="lg" className="pt-20 pb-12 bg-slate-50 border-b border-slate-200">
-        <Container>
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">Selected Work</h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              A collection of recent projects and highlights from my career in presales, solution architecture, and technical strategy.
-            </p>
+    <PageShell
+      title="Work"
+      description="A resume-style timeline of roles, scope, and responsibilities."
+    >
+      <section aria-labelledby="experience-timeline">
+        <h2 id="experience-timeline" className="text-xl font-semibold tracking-tight text-(--text)">
+          Experience
+        </h2>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <ol className="relative border-l border-(--border) pl-6">
+              {profile.experience.map((role) => (
+                <li key={role.id} className="relative pb-10">
+                  <div className="absolute -left-2 top-2 h-4 w-4 rounded-full border border-(--border) bg-(--bg)" />
+
+                  <article className="rounded-2xl border border-(--border) bg-(--surface) p-6 shadow-sm">
+                    <header className="flex flex-col gap-2">
+                      <h3 className="text-base font-semibold tracking-tight text-(--text)">
+                        {role.title}
+                      </h3>
+                      <p className="text-sm text-(--muted)">
+                        {role.company}  {role.location}
+                      </p>
+                      <p className="text-sm text-(--muted)">
+                        {role.startDate}  {role.endDate}
+                      </p>
+                    </header>
+
+                    <p className="mt-4 text-sm leading-7 text-(--muted)">{role.description}</p>
+
+                    <h4 className="mt-5 text-xs font-semibold tracking-wide text-(--text)">
+                      Responsibilities
+                    </h4>
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-(--muted)">
+                      {role.highlights.map((h, i) => (
+                        <li key={i}>{h}</li>
+                      ))}
+                    </ul>
+                  </article>
+                </li>
+              ))}
+            </ol>
           </div>
-        </Container>
-      </Section>
 
-      {/* Work Items */}
-      <Section size="lg">
-        <Container>
-          <div className="space-y-8">
-            {profile.work.map((work) => (
-              <Card key={work.id} hover className="border-l-4 border-l-slate-900">
-                <div>
-                  {/* Header */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-4 mb-4">
-                    <div>
-                      <h2 className="text-3xl font-bold text-slate-900 mb-2">{work.title}</h2>
-                      <Badge variant="outline">{work.category}</Badge>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-4 text-slate-600">
-                    <div>
-                      <h3 className="font-bold text-slate-900 mb-2">Challenge</h3>
-                      <p>{work.problem}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="font-bold text-slate-900 mb-2">Approach</h3>
-                      <p>{work.approach}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="font-bold text-slate-900 mb-2">Outcome</h3>
-                      <p>{work.outcome}</p>
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200">
-                    {work.tags.map((tag) => (
-                      <Badge key={tag} variant="default">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Experience Summary */}
-      <Section size="lg" className="bg-slate-50">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-4xl font-bold text-slate-900 mb-2">
-                {profile.credibility.experience}+
+          <aside className="md:col-span-4">
+            <div className="rounded-2xl border border-(--border) bg-(--surface) p-6 text-sm shadow-sm">
+              <h3 className="text-sm font-semibold tracking-tight text-(--text)">Skills snapshot</h3>
+              <p className="mt-3 text-(--muted)">
+                Core skill groups used across roles.
               </p>
-              <p className="text-slate-600">Years of Experience</p>
+              <ul className="mt-4 space-y-3">
+                {profile.skills.map((g) => (
+                  <li key={g.category}>
+                    <p className="font-medium text-(--text)">{g.category}</p>
+                    <p className="mt-1 text-(--muted)">{g.items.slice(0, 4).join(", ")}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <p className="text-4xl font-bold text-slate-900 mb-2">
-                {profile.experience.length}
-              </p>
-              <p className="text-slate-600">Roles and Positions</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-slate-900 mb-2">
-                {profile.credibility.regions.length}
-              </p>
-              <p className="text-slate-600">Global Regions</p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA Section */}
-      <CTA
-        title="Interested in working together?"
-        description="Let's discuss how we can collaborate on your next project or initiative."
-        primaryButtonText="Get in touch"
-        primaryButtonHref="/contact"
-        secondaryButtonText="View services"
-        secondaryButtonHref="/services"
-      />
-    </>
+          </aside>
+        </div>
+      </section>
+    </PageShell>
   );
 }

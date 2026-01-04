@@ -213,7 +213,7 @@ export const profile = {
     },
     {
       id: 4,
-      name: "Marketing (Technical + GTM support)",
+      name: "Marketing (Technical & GTM Support)",
       outcome: "Develop go-to-market strategies and technical content that resonates with buyers.",
       description:
         "Positioning, messaging, and technical content to support sales and product launch.",
@@ -227,7 +227,7 @@ export const profile = {
     },
     {
       id: 5,
-      name: "Presales Lead (RFP/RFI, demos, solutioning)",
+      name: "Presales Lead",
       outcome: "Win more deals faster by delivering compelling, customer-centric solutions.",
       description:
         "End-to-end presales: from discovery and RFP response to demos, proposals, and negotiations.",

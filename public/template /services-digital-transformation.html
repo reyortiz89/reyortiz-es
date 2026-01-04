@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Digital Transformation & Technology Consulting - Reynier Ortiz</title>
+  <meta content="Digital transformation and technology consulting for SMEs." name="description">
+  <meta content="digital transformation, technology consulting" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="service-details-page">
+
+  <!-- Modal styles (reused from index) -->
+  <style>
+    .case-study-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .case-study-modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); cursor: pointer; z-index: -1; }
+    .case-study-modal-content { background: white; border-radius: 8px; width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3); animation: slideUp 0.3s ease-out; padding: 40px; }
+    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .case-study-modal-close { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 32px; cursor: pointer; color: #333; z-index: 10; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: background 0.2s; }
+    .case-study-modal-close:hover { background: #f0f0f0; }
+    .case-study-modal-image { border-radius: 8px; display: block; width: 100%; height: auto; }
+    .case-study-modal-image--img { width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: 8px; }
+    .case-study-modal-text h2 { font-size: 28px; font-weight: 700; margin-top: 0; }
+    .case-study-modal-text h3 { font-size: 18px; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #333; }
+    .case-study-modal-text p { color: #666; line-height: 1.6; margin-bottom: 0.75rem; }
+    .case-study-modal-text strong { color: #333; }
+    @media (max-width: 768px) {
+      .case-study-modal-content { padding: 50px 20px 20px; }
+      .case-study-modal-close { top: 10px; right: 10px; }
+      .case-study-modal-text h2 { font-size: 22px; }
+      .case-study-modal-text h3 { font-size: 16px; }
+      .case-study-modal-text { max-height: none !important; overflow-y: auto; }
+    }
+  </style>
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="../images/WhatsApp Image 2026-01-04 at 19.53.48.jpeg" alt="Rey Ortiz" class="img-fluid rounded-circle" style="width: 120px; height: 120px; object-fit: cover; object-position: center;" />
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Reynier Ortiz</h1>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Success Stories</a></li>
+        <li class="dropdown"><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> <span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul class="dropdown-active">
+            <li><a href="services-automation-ai.html">Automation, AI &amp; Process Optimization</a></li>
+            <li><a href="services-digital-transformation.html" class="active">Digital Transformation &amp; Technology Consulting</a></li>
+            <li><a href="services-software-integration.html">Custom Software, Web &amp; System Integration</a></li>
+            <li><a href="services-marketing-growth.html">Marketing, Growth &amp; Technical Enablement</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Digital Transformation &amp; Technology Consulting</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Service</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="services-list">
+              <a href="services-automation-ai.html">Automation, AI &amp; Process Optimization</a>
+              <a href="services-digital-transformation.html" class="active">Digital Transformation &amp; Technology Consulting</a>
+              <a href="services-software-integration.html">Custom Software, Web &amp; System Integration</a>
+              <a href="services-marketing-growth.html">Marketing, Growth &amp; Technical Enablement</a>
+            </div>
+
+            <h4>Clarify priorities. Align technology. Enable sustainable growth.</h4>
+            <p>I help organizations make sense of their technology landscape and define a clear, realistic path toward digitalization aligned with business goals.</p>
+          </div>
+
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+            <h3>What you can expect</h3>
+            <p>
+              Digital transformation is not about tools, but about making better decisions over time. I focus on clarity, prioritization, and execution that fits the size and maturity of your business.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Assessment of current systems, processes, and gaps</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Definition of a realistic digital roadmap</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Guidance on technology choices and implementation sequencing</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Change adoption support to ensure teams can operate the new workflows</span></li>
+            </ul>
+            <p>
+              Projects and examples for this service will be added next.
+            </p>
+
+            <!-- Related Success Stories -->
+            <section id="related-success-stories" class="portfolio section light-background" style="padding: 30px 20px; margin-top: 30px; border-radius: 12px;">
+              <div class="section-title" data-aos="fade-up">
+                <h2 style="font-size: 22px;">Related success stories</h2>
+                <p>Note: these are only a few selected success stories from past projects.</p>
+              </div>
+
+              <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="col-lg-4 col-md-6">
+                  <a class="portfolio-content h-100 d-block open-case-study" href="index.html?case=saigon-tech#portfolio" data-case="saigon-tech" data-image="https://saigontechnology.com/wp-content/uploads/build-a-tech-team-in-vietnam.webp" style="cursor:pointer;">
+                    <img class="img-fluid" alt="Saigon Technology" src="https://saigontechnology.com/wp-content/uploads/build-a-tech-team-in-vietnam.webp" loading="lazy" style="width:100%; height: 200px; object-fit: cover;" />
+                    <div class="portfolio-info">
+                      <h4>Saigon Technology</h4>
+                      <p>Service alignment and sales/delivery collaboration for international expansion.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <a class="portfolio-content h-100 d-block open-case-study" href="index.html?case=innova#portfolio" data-case="innova" data-image="https://www.eventoplus.com/wp-content/uploads/eventoplus/imgsxml/galerias/articulos/3386/big-evento-festivales-patrocinios395.jpg" style="cursor:pointer;">
+                    <img class="img-fluid" alt="Innova Eventos" src="https://www.eventoplus.com/wp-content/uploads/eventoplus/imgsxml/galerias/articulos/3386/big-evento-festivales-patrocinios395.jpg" loading="lazy" style="width:100%; height: 200px; object-fit: cover;" />
+                    <div class="portfolio-info">
+                      <h4>Innova Eventos</h4>
+                      <p>Digitalization and ERP/CRM integration to improve visibility and execution.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <a class="portfolio-content h-100 d-block open-case-study" href="index.html?case=shiponadime#portfolio" data-case="shiponadime" data-image="https://navata.com/cms/wp-content/uploads/2022/01/What-is-Logistics-for-eCommerce-7-1024x576.png" style="cursor:pointer;">
+                    <img class="img-fluid" alt="ShipOnADime" src="https://navata.com/cms/wp-content/uploads/2022/01/What-is-Logistics-for-eCommerce-7-1024x576.png" loading="lazy" style="width:100%; height: 200px; object-fit: cover;" />
+                    <div class="portfolio-info">
+                      <h4>ShipOnADime</h4>
+                      <p>Operational delivery of an MVP and scaling a distributed product team.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <a class="portfolio-content h-100 d-block open-case-study" href="index.html?case=mbe#portfolio" data-case="mbe" data-image="https://takulabs.io/wp-content/uploads/2022/04/delivery_driver_Monkey_Business_ImagesShutterstock_794998891-1024x683.jpg" style="cursor:pointer;">
+                    <img class="img-fluid" alt="Mail Boxes Etc. (MBE Spain)" src="https://takulabs.io/wp-content/uploads/2022/04/delivery_driver_Monkey_Business_ImagesShutterstock_794998891-1024x683.jpg" loading="lazy" style="width:100%; height: 200px; object-fit: cover;" />
+                    <div class="portfolio-info">
+                      <h4>MBE Spain</h4>
+                      <p>Process automation and operational control improvements.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <a class="portfolio-content h-100 d-block open-case-study" href="index.html?case=jj-flowers#portfolio" data-case="jj-flowers" data-image="https://cdn0.weddingwire.com/vendor/981679/3_2/960/jpg/flowers-near-me-florist-pembroke-pines-weddings-events-commercial-08_51_1976189-159346487436087.jpeg" style="cursor:pointer;">
+                    <img class="img-fluid" alt="J&J Flowers" src="https://cdn0.weddingwire.com/vendor/981679/3_2/960/jpg/flowers-near-me-florist-pembroke-pines-weddings-events-commercial-08_51_1976189-159346487436087.jpeg" loading="lazy" style="width:100%; height: 200px; object-fit: cover;" />
+                    <div class="portfolio-info">
+                      <h4>J&amp;J Flowers</h4>
+                      <p>Operational improvements through digitalization and workflow optimization.</p>
+                    </div>
+                  </a>
+                </div>
+
+              </div>
+            </section>
+            <!-- /Related Success Stories -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Reynier Ortiz</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Case Study Modal (local to this page) -->
+  <div id="caseStudyModal" class="case-study-modal" style="display: none;">
+    <div class="case-study-modal-overlay"></div>
+    <div class="case-study-modal-content">
+      <button class="case-study-modal-close">&times;</button>
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6 col-md-12 mb-3 mb-lg-0">
+            <img id="caseModalImageImg" class="case-study-modal-image case-study-modal-image--img" alt="" style="display:none;" />
+            <svg id="caseModalImage" class="case-study-modal-image" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; max-height: 400px;"></svg>
+          </div>
+          <div class="col-lg-6 col-md-12 case-study-modal-text" style="max-height: 500px; overflow-y: auto;">
+            <h2 id="caseModalTitle" style="margin-bottom: 1.5rem; color: #333;"></h2>
+            <div id="caseModalBody"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden case study content used to populate the modal -->
+  <section id="caseStudyContent" style="display:none;" aria-hidden="true">
+    <div id="case-saigon-tech">
+      <h2>Saigon Technology   Technology &amp; Sales Consulting</h2>
+      <p><strong>Project overview:</strong> Software development firm (APAC). 6-month engagement supporting expansion into Japan and Australia through better alignment and positioning.</p>
+      <h3>Challenge</h3>
+      <p>Fragmented sales and technical offering, inefficient outreach to international clients, and lack of alignment between sales and delivery teams.</p>
+      <h3>Solution</h3>
+      <p>Aligned sales and technical teams, streamlined outreach and proposal process, standardized service offerings, and supported client conversations and positioning.</p>
+      <h3>Results</h3>
+      <p>Reduced sales cycle duration, improved proposal consistency, better conversion with Japanese and Australian clients, and stronger coordination between teams.</p>
+    </div>
+
+    <div id="case-innova">
+      <h2>Innova Eventos   Digitalization &amp; Systems Integration</h2>
+      <p><strong>Project overview:</strong> Events &amp; festivals operator (Spain). 6-month engagement focused on digitalization, integrations, and operational visibility.</p>
+      <h3>Challenge</h3>
+      <p>Manual operations, disconnected tools, and limited visibility across events and operations.</p>
+      <h3>Solution</h3>
+      <p>Led company-wide digitalization, integrated ERP and CRM tools, and optimized operational processes to reduce manual coordination.</p>
+      <h3>Results</h3>
+      <p>Improved operational visibility, reduced manual coordination, and better event planning and execution.</p>
+    </div>
+
+    <div id="case-shiponadime">
+      <h2>ShipOnADime   Software Development &amp; Project Management</h2>
+      <p><strong>Project overview:</strong> Logistics/shipping platform (global). 1-year collaboration managing distributed stakeholders and delivery of an MVP and scalable product.</p>
+      <h3>Challenge</h3>
+      <p>High operational costs, distributed teams (USA stakeholders and India dev team), and need for a fast MVP and scalable platform.</p>
+      <h3>Solution</h3>
+      <p>Took full project management ownership, delivered an MVP in under 3 months, implemented a cost optimization strategy, and supported ongoing product growth and marketing enablement.</p>
+      <h3>Results</h3>
+      <p>MVP delivered in &lt;3 months, reduced development and operational costs, scalable platform ready for growth, and improved coordination across teams.</p>
+    </div>
+
+    <div id="case-mbe">
+      <h2>Mail Boxes Etc. (MBE Spain)   Process Automation</h2>
+      <p><strong>Project overview:</strong> Logistics &amp; services network (Spain). Collaboration project focused on automation, standardization, and improved operational control.</p>
+      <h3>Challenge</h3>
+      <p>Manual internal processes, high operational costs, and limited process visibility.</p>
+      <h3>Solution</h3>
+      <p>Automated key processes, standardized workflows, and implemented operational efficiency improvements to reduce friction and improve control.</p>
+      <h3>Results</h3>
+      <p>~30% cost reduction, increased operational efficiency, improved revenue performance, and better internal process control.</p>
+    </div>
+
+    <div id="case-jj-flowers">
+      <h2>J&amp;J Flowers   Automation &amp; Digitalization Consulting</h2>
+      <p><strong>Project overview:</strong> Retail / Florist (Florida, USA). 3-month engagement focused on operational efficiency, CRM structure, and delivery coordination.</p>
+      <h3>Challenge</h3>
+      <p>High operational costs, manual and slow order preparation, inefficient delivery coordination, and no structured CRM or marketing strategy.</p>
+      <h3>Solution</h3>
+      <p>Streamlined sales and order management, optimized preparation and delivery workflows, implemented CRM for customer/order tracking, and defined a cost-effective local and online marketing approach.</p>
+      <h3>Results</h3>
+      <p>~2530% reduction in order preparation time, improved delivery accuracy and consistency, centralized customer and order data, and increased local visibility and repeat customers.</p>
+    </div>
+  </section>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Page-local: open modal instead of navigating to index -->
+  <script>
+    document.querySelectorAll('#related-success-stories a.open-case-study').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,83 +1,116 @@
 @import "tailwindcss";
 
+/*
+  Theme tokens (official)
+  Light
+    Background: #FFFFFF
+    Surface:    #F8FAFC
+    Text:       #020617
+    Muted:      #475569
+    Border:     #E5E7EB
+    Primary:    #2563EB
+    Secondary:  #0EA5E9
+    Success:    #16A34A
+
+  Dark
+    Background: #020617
+    Surface:    #020617
+    Text:       #E5E7EB
+    Muted:      #94A3B8
+    Border:     #1E293B
+    Primary:    #3B82F6
+    Secondary:  #38BDF8
+    Success:    #22C55E
+*/
+
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --text: #020617;
+  --muted: #475569;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-2: #0ea5e9;
+  --success: #16a34a;
+
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
+  --shadow-md: 0 10px 30px rgba(2, 6, 23, 0.08);
+
+  --ring: rgba(37, 99, 235, 0.45);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #020617;
+  --surface: #020617;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: #1e293b;
+  --accent: #3b82f6;
+  --accent-2: #38bdf8;
+  --success: #22c55e;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+
+  --ring: rgba(59, 130, 246, 0.5);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: white;
-  color: rgb(15 23 42);
+  background: var(--bg);
+  color: var(--text);
   font-feature-settings: "kern" 1;
+  text-rendering: geometricPrecision;
 }
 
-/* Headings */
+/* Typography (neutral, editorial, non-default scale) */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
-  letter-spacing: -0.025em;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
-h1 {
-  font-size: 2.25rem;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 3.75rem;
-  }
-}
-
-h2 {
-  font-size: 1.875rem;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: 2.25rem;
-  }
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 1.875rem;
-  }
-}
-
-/* Paragraph */
 p {
-  line-height: 1.625;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 /* Links */
 a {
   color: inherit;
-  transition-property: color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease,
+    box-shadow 160ms ease, transform 160ms ease;
 }
 
 a:hover {
-  color: rgb(71 85 105);
+  color: var(--accent);
 }
 
-/* Focus styles for accessibility */
+/* Accessible focus */
 :focus-visible {
-  outline: 2px solid rgb(15 23 42);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+  border-radius: 10px;
 }
+
+/*
+  All layout, navigation, card, and form styling is implemented using Tailwind utilities.
+  Keep this file focused on design tokens and a small set of global defaults.
+*/
 
 

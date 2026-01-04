@@ -9,12 +9,10 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 export function Section({ size = "lg", className, ...props }: SectionProps) {
   const sizeStyles = {
-    sm: "py-8",
-    md: "py-12",
-    lg: "py-16",
+    sm: "py-10",
+    md: "py-12 sm:py-14",
+    lg: "py-12 sm:py-16",
   };
 
-  return (
-    <section className={cn(sizeStyles[size], className)} {...props} />
-  );
+  return <section className={cn(sizeStyles[size], className)} {...props} />;
 }
