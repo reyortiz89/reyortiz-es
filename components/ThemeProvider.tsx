@@ -30,8 +30,9 @@ function getPreferredTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize with "light" to match SSR output and avoid hydration mismatch
-  const [theme, setThemeState] = useState<Theme>("light");
+  // Initialize with undefined to read from DOM after hydration
+  const [theme, setThemeState] = useState<Theme | undefined>(undefined);
+  const [mounted, setMounted] = useState(false);
 
   const applyThemeToDom = useCallback((next: Theme) => {
     document.documentElement.dataset.theme = next;
@@ -53,29 +54,31 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   );
 
   const toggleTheme = useCallback(() => {
+    if (!theme) return;
     setTheme(theme === "dark" ? "light" : "dark");
   }, [setTheme, theme]);
 
-  // Sync with localStorage/preference after hydration completes
-  // This needs to run only once after the component mounts to avoid hydration mismatches
+  // Read the theme from DOM after hydration to match what ThemeScript set
   useEffect(() => {
-    const actualTheme = getPreferredTheme();
-    if (actualTheme !== "light") {
-      setThemeState(actualTheme);
-      applyThemeToDom(actualTheme);
-    }
-    // Run once on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const currentTheme = (document.documentElement.dataset.theme as Theme) || getPreferredTheme();
+    setThemeState(currentTheme);
+    setMounted(true);
   }, []);
 
-  const value = useMemo(() => ({ theme, setTheme, toggleTheme }), [theme, setTheme, toggleTheme]);
+  const value = useMemo(() => ({ 
+    theme: theme || "light", 
+    setTheme, 
+    toggleTheme 
+  }), [theme, setTheme, toggleTheme]);
+
+  // Don't render children until theme is initialized to prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={value}>
-      {/* Suppress hydration warnings for theme attribute changes */}
-      <div suppressHydrationWarning>
-        {children}
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 }
