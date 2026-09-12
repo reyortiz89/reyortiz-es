@@ -37,5 +37,8 @@
     "tailwindcss": "^4",
     "tsx": "^4.19.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9 <23"
   }
 }
