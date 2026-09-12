@@ -4,7 +4,7 @@ A supermarket shelf for software companies. Companies claim permanent facings; e
 
 ## Stack
 
-Next.js 16 (App Router) · Prisma 6 + Postgres · Stripe Checkout · Resend · Tailwind v4. Deploys on Vercel with the **root directory set to `claimtheshelf`**.
+Next.js 16 (App Router) · Prisma 6 + Postgres · Stripe Checkout · Resend · Tailwind v4. Deploys on **Railway** (config below) or Vercel — either way set the service **root directory to `claimtheshelf`**.
 
 ## Run locally
 
@@ -37,9 +37,24 @@ Free listings: copy `prisma/listings.example.json` to `prisma/listings.json` and
 
 Shelf Credits are applied at checkout from the manage panel as a one-off Stripe coupon and deducted on payment. They are never refundable.
 
+## Deploy on Railway
+
+One project, three services:
+
+| Service | Source | Config | Notes |
+|---|---|---|---|
+| `postgres` | Railway Postgres plugin | — | provides `DATABASE_URL` |
+| `web` | this repo, root directory `claimtheshelf` | `railway.json` (default) | start runs `prisma migrate deploy` then `next start`; healthcheck `/api/health` |
+| `cron` | same repo/root | set `RAILWAY_CONFIG_FILE=railway.cron.json` | runs `scripts/cron.mjs` every 15 min and exits |
+
+Variables on `web`: `DATABASE_URL=${{Postgres.DATABASE_URL}}`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_TAX`, `RESEND_API_KEY`, `EMAIL_FROM`, `NEXT_PUBLIC_SITE_URL` (the public domain), `CRON_SECRET`.
+Variables on `cron`: `APP_URL` (same public domain) and `CRON_SECRET`.
+
+First deploy creates the tables (migration `0001_init`). Then seed once: `railway run --service web npm run db:seed` (or run it locally against the Railway `DATABASE_URL`).
+
 ## Cron
 
-`vercel.json` calls `/api/cron/resolve-takeovers` hourly (Hobby plans allow daily — expired takeovers are also resolved lazily whenever a facing or manage page renders). Send `Authorization: Bearer $CRON_SECRET`; Vercel does this automatically for cron jobs when `CRON_SECRET` is set.
+On Railway the `cron` service above calls `/api/cron/resolve-takeovers` every 15 minutes; on Vercel `vercel.json` calls it hourly. Expired takeovers are also resolved lazily whenever a facing or manage page renders, so the cron is belt and braces. Send `Authorization: Bearer $CRON_SECRET`; Vercel does this automatically for cron jobs when `CRON_SECRET` is set.
 
 ## Owner access
 
