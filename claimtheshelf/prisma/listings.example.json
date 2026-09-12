@@ -1,0 +1,14 @@
+[
+  {
+    "aisle": "saas",
+    "name": "Example SaaS Co",
+    "url": "https://example.com",
+    "tagline": "Placeholder entry — replace with the real companies you select for the free bottom-shelf listings."
+  },
+  {
+    "aisle": "saas",
+    "name": "Another Example",
+    "url": "https://example.org",
+    "tagline": "Each entry becomes an UNCLAIMED listing that the company can claim for free with an email at its own domain."
+  }
+]

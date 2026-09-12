@@ -1,0 +1,5 @@
+{
+  "crons": [
+    { "path": "/api/cron/resolve-takeovers", "schedule": "0 * * * *" }
+  ]
+}

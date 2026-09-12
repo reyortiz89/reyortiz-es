@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Shelf {
+  TOP
+  EYE
+  MID
+  BOT
+}
+
+enum AisleStatus {
+  OPEN
+  LOCKED
+}
+
+enum FacingStatus {
+  OPEN
+  CLAIMED
+  UNCLAIMED
+}
+
+enum PurchaseKind {
+  CLAIM
+  TAKEOVER
+  MATCH
+}
+
+enum PurchaseStatus {
+  PENDING
+  PAID
+  REFUNDED
+}
+
+enum TakeoverStatus {
+  PENDING
+  MATCHED
+  COMPLETED
+}
+
+model Aisle {
+  id        String      @id @default(cuid())
+  slug      String      @unique
+  name      String
+  sort      Int
+  status    AisleStatus @default(LOCKED)
+  facings   Facing[]
+  createdAt DateTime    @default(now())
+}
+
+model Facing {
+  id                String       @id @default(cuid())
+  aisle             Aisle        @relation(fields: [aisleId], references: [id])
+  aisleId           String
+  shelf             Shelf
+  position          Int
+  basePriceCents    Int
+  currentPriceCents Int
+  status            FacingStatus @default(OPEN)
+  owner             Owner?       @relation(fields: [ownerId], references: [id])
+  ownerId           String?
+  name              String?
+  tagline           String?
+  url               String?
+  color             String?
+  isFreeListing     Boolean      @default(false)
+  isFounding        Boolean      @default(false)
+  views             Int          @default(0)
+  clicks            Int          @default(0)
+  claimedAt         DateTime?
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+  purchases         Purchase[]
+  takeovers         Takeover[]
+  stats             DailyStat[]
+  cartItems         CartItem[]
+  claimTokens       ClaimToken[]
+
+  @@unique([aisleId, shelf, position])
+  @@index([status])
+}
+
+model Owner {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String?
+  manageToken  String         @unique @default(cuid())
+  creditsCents Int            @default(0)
+  facings      Facing[]
+  purchases    Purchase[]
+  challenges   Takeover[]     @relation("challenger")
+  defences     Takeover[]     @relation("incumbent")
+  ledger       CreditLedger[]
+  createdAt    DateTime       @default(now())
+}
+
+model Purchase {
+  id                    String         @id @default(cuid())
+  facing                Facing         @relation(fields: [facingId], references: [id])
+  facingId              String
+  owner                 Owner?         @relation(fields: [ownerId], references: [id])
+  ownerId               String?
+  kind                  PurchaseKind
+  status                PurchaseStatus @default(PENDING)
+  amountCents           Int
+  creditsUsedCents      Int            @default(0)
+  stripeSessionId       String         @unique
+  stripePaymentIntentId String?
+  email                 String?
+  companyName           String?
+  companyUrl            String?
+  tagline               String?
+  takeoverId            String?
+  takeover              Takeover?      @relation("bid")
+  createdAt             DateTime       @default(now())
+}
+
+model Takeover {
+  id                 String         @id @default(cuid())
+  facing             Facing         @relation(fields: [facingId], references: [id])
+  facingId           String
+  challenger         Owner          @relation("challenger", fields: [challengerId], references: [id])
+  challengerId       String
+  incumbent          Owner          @relation("incumbent", fields: [incumbentId], references: [id])
+  incumbentId        String
+  bidCents           Int
+  previousPriceCents Int
+  status             TakeoverStatus @default(PENDING)
+  deadline           DateTime
+  purchase           Purchase       @relation("bid", fields: [purchaseId], references: [id])
+  purchaseId         String         @unique
+  matchPurchaseId    String?
+  createdAt          DateTime       @default(now())
+  resolvedAt         DateTime?
+
+  @@index([status, deadline])
+}
+
+model CreditLedger {
+  id         String   @id @default(cuid())
+  owner      Owner    @relation(fields: [ownerId], references: [id])
+  ownerId    String
+  deltaCents Int
+  reason     String
+  refId      String?
+  createdAt  DateTime @default(now())
+}
+
+model DailyStat {
+  id        String   @id @default(cuid())
+  facing    Facing   @relation(fields: [facingId], references: [id])
+  facingId  String
+  date      DateTime @db.Date
+  views     Int      @default(0)
+  clicks    Int      @default(0)
+  countries Json     @default("{}")
+
+  @@unique([facingId, date])
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  visitorId String
+  facing    Facing   @relation(fields: [facingId], references: [id])
+  facingId  String
+  createdAt DateTime @default(now())
+
+  @@unique([visitorId, facingId])
+}
+
+model ClaimToken {
+  id        String    @id @default(cuid())
+  token     String    @unique @default(cuid())
+  facing    Facing    @relation(fields: [facingId], references: [id])
+  facingId  String
+  email     String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+}
