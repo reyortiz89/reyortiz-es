@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/site";
+
 export const metadata = { title: "Terms" };
 
 export default function Terms() {
@@ -27,7 +29,7 @@ export default function Terms() {
       <h2>Free listings</h2>
       <p>
         We may list a company&apos;s name, website and a short description on the lower shelves without charge, labelled &quot;unclaimed&quot;, so that the company can claim and control it for free with an email at its own domain.
-        A free listing is a placement, never an endorsement or a statement of any relationship. Any company may have its listing removed by writing to hello@claimtheshelf.com; we act within 24 hours.
+        A free listing is a placement, never an endorsement or a statement of any relationship. Any company may have its listing removed by writing to {CONTACT_EMAIL}; we act within 24 hours.
       </p>
 
       <h2>Content rules</h2>

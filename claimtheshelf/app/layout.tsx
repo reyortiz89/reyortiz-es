@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Work_Sans } from "next/font/google";
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { SITE_NAME, siteUrl } from "@/lib/site";
+import { CONTACT_EMAIL, SITE_NAME, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" });
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <span className="flex gap-4">
               <Link href="/terms" className="underline">Terms</Link>
               <Link href="/stats" className="underline">Live stats</Link>
-              <a href="mailto:hello@claimtheshelf.com" className="underline">Remove my brand</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="underline">Remove my brand</a>
             </span>
           </div>
         </footer>
