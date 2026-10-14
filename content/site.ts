@@ -6,13 +6,13 @@ export const site = {
   name: "Rey Ortiz",
   legalName: "Reynier Ortiz Tamayo",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://reyortiz.es",
-  email: "rey@reyortiz.es",
+  email: "rey@closevibe.com",
   phone: "+34 632 503 325",
   whatsapp: "https://wa.me/34632503325",
   location: { city: "Barcelona", country: "ES" },
   linkedin: "https://www.linkedin.com/in/reynier-ortiz-tamayo/",
   github: "https://github.com/reyortiz89",
-  /** Cal.com / Calendly link for the "book a call" buttons. Hidden when unset. */
-  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
+  /** Calendly link for the "book a call" buttons; they fall back to /contact when unset. */
+  calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL ?? "",
   yearsOfExperience: 14,
 } as const;

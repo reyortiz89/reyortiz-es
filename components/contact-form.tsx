@@ -14,7 +14,7 @@ type Status = "idle" | "sending" | "success" | "error" | "rate_limited" | "inval
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 const inputClass =
-  "mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring aria-invalid:border-danger";
+  "mt-2 block w-full rounded-2xl border border-border bg-background px-4 py-3.5 text-foreground transition-colors placeholder:text-muted/70 hover:border-foreground/25 focus:border-foreground focus:outline-none focus:ring-4 focus:ring-accent/40 aria-invalid:border-danger";
 
 export function ContactForm({
   email,
@@ -157,14 +157,14 @@ export function ContactForm({
           type="checkbox"
           required
           aria-invalid={bad("consent")}
-          className="mt-0.5 size-4 rounded border-border accent-[var(--primary)]"
+          className="mt-0.5 size-4 rounded border-border accent-[var(--foreground)]"
         />
         <span>
           {t.rich("consent", {
             link: (chunks) => (
               <Link
                 href={{ pathname: "/legal/[slug]", params: { slug: "privacidad" } }}
-                className="text-primary underline underline-offset-2"
+                className="text-foreground underline underline-offset-2"
               >
                 {chunks}
               </Link>
@@ -186,7 +186,7 @@ export function ContactForm({
         </p>
       )}
 
-      <button type="submit" disabled={status === "sending"} className={cn(buttonVariants.primary, "w-full sm:w-auto")}>
+      <button type="submit" disabled={status === "sending"} className={cn(buttonVariants.primary, "w-full py-4")}>
         {status === "sending" ? (
           <Loader2 className="size-4 animate-spin" aria-hidden />
         ) : (

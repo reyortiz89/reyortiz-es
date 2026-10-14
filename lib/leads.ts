@@ -1,26 +1,29 @@
 import "server-only";
 import { createTransport } from "nodemailer";
+import { site } from "@/content/site";
 import type { Lead } from "./lead-schema";
 
 /**
- * Lead delivery: every captured lead is (1) pushed to Closeby and (2) emailed
- * through the Closeby SMTP account, plus a confirmation to the visitor.
- * Each channel is optional so the site keeps working while one is not configured.
+ * Lead delivery: every captured lead is emailed to Rey through the SMTP
+ * mailbox (Namecheap Private Email by default), plus a confirmation to the
+ * visitor. An optional webhook can forward leads to a CRM later on.
  */
 
-type DeliveryResult = { closeby: boolean | null; email: boolean | null };
+type DeliveryResult = { webhook: boolean | null; email: boolean | null };
 
-function smtpConfigured() {
-  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
-}
+const smtp = {
+  host: process.env.SMTP_HOST || "mail.privateemail.com",
+  port: Number(process.env.SMTP_PORT || 465),
+  user: process.env.SMTP_USER || site.email,
+  pass: process.env.SMTP_PASS,
+};
 
 function transporter() {
-  const port = Number(process.env.SMTP_PORT ?? 465);
   return createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure: port === 465,
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    host: smtp.host,
+    port: smtp.port,
+    secure: smtp.port === 465, // 465 = SSL; 587 = STARTTLS
+    auth: { user: smtp.user, pass: smtp.pass },
   });
 }
 
@@ -48,8 +51,8 @@ function leadRows(lead: Lead) {
   ].filter(([, v]) => v) as [string, string][];
 }
 
-async function sendToCloseby(lead: Lead): Promise<boolean | null> {
-  const url = process.env.CLOSEBY_WEBHOOK_URL;
+async function sendToWebhook(lead: Lead): Promise<boolean | null> {
+  const url = process.env.LEADS_WEBHOOK_URL;
   if (!url) return null;
   const payload = {
     name: lead.name,
@@ -68,18 +71,18 @@ async function sendToCloseby(lead: Lead): Promise<boolean | null> {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...(process.env.CLOSEBY_API_KEY ? { Authorization: `Bearer ${process.env.CLOSEBY_API_KEY}` } : {}),
+      ...(process.env.LEADS_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEADS_WEBHOOK_TOKEN}` } : {}),
     },
     body: JSON.stringify({ ...payload, consentAt: new Date().toISOString(), site: "reyortiz.es" }),
     signal: AbortSignal.timeout(8000),
   });
-  if (!res.ok) throw new Error(`Closeby responded ${res.status}`);
+  if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
   return true;
 }
 
 async function sendEmails(lead: Lead): Promise<boolean | null> {
-  if (!smtpConfigured()) return null;
-  const from = process.env.SMTP_FROM || process.env.SMTP_USER!;
+  if (!smtp.pass) return null;
+  const from = process.env.SMTP_FROM || smtp.user;
   const to = process.env.LEADS_NOTIFY_TO || from;
   const fromName = process.env.SMTP_FROM_NAME || "Rey Ortiz";
   const mailer = transporter();
@@ -114,12 +117,12 @@ async function sendEmails(lead: Lead): Promise<boolean | null> {
 }
 
 export async function deliverLead(lead: Lead): Promise<DeliveryResult> {
-  const [closeby, email] = await Promise.allSettled([sendToCloseby(lead), sendEmails(lead)]);
+  const [webhook, email] = await Promise.allSettled([sendToWebhook(lead), sendEmails(lead)]);
   const result: DeliveryResult = {
-    closeby: closeby.status === "fulfilled" ? closeby.value : false,
+    webhook: webhook.status === "fulfilled" ? webhook.value : false,
     email: email.status === "fulfilled" ? email.value : false,
   };
-  if (closeby.status === "rejected") console.error("[leads] Closeby delivery failed", closeby.reason);
+  if (webhook.status === "rejected") console.error("[leads] webhook delivery failed", webhook.reason);
   if (email.status === "rejected") console.error("[leads] email delivery failed", email.reason);
   return result;
 }

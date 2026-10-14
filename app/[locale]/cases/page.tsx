@@ -1,7 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { CaseCard } from "@/components/cards";
+import { CaseCard, CaseRow } from "@/components/cards";
 import { CtaBand } from "@/components/cta-band";
-import { Container, Section, SectionHeader } from "@/components/ui";
+import { Reveal } from "@/components/motion";
+import { Container, Eyebrow, PageHero, Section } from "@/components/ui";
 import { cases } from "@/content/cases";
 import type { Locale } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/metadata";
@@ -18,15 +19,30 @@ export default async function CasesPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("cases");
+  const featured = cases.filter((c) => c.featured);
+  const rest = cases.filter((c) => !c.featured);
 
   return (
     <>
-      <Section>
+      <PageHero eyebrow={t("eyebrow")} title={t("heroTitle")} subtitle={t("subtitle")} />
+      <Section className="pt-0 sm:pt-0">
         <Container>
-          <SectionHeader as="h1" title={t("title")} subtitle={t("subtitle")} />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {cases.map((c) => (
-              <CaseCard key={c.slug} item={c} locale={locale} />
+          <div className="grid gap-4 md:grid-cols-3">
+            {featured.map((c, i) => (
+              <Reveal key={c.slug} delay={i * 0.08} className="h-full">
+                <CaseCard item={c} locale={locale} index={i} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <Eyebrow className="mt-24">{t("more")}</Eyebrow>
+          </Reveal>
+          <div className="mt-8 border-b border-border">
+            {rest.map((c) => (
+              <Reveal key={c.slug}>
+                <CaseRow item={c} locale={locale} />
+              </Reveal>
             ))}
           </div>
         </Container>

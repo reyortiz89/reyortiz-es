@@ -5,24 +5,24 @@ Professional site of Rey Ortiz: technology consulting, automation, AI and custom
 ## Stack
 
 - Next.js 16 (App Router, static generation) · React 19 · TypeScript
-- Tailwind CSS 4 with design tokens in `app/globals.css`
+- Tailwind CSS 4 with design tokens in `app/globals.css` · Geist + Instrument Serif · `motion` for scroll reveals
 - `next-intl` for ES/EN with translated URLs (`/es/servicios`, `/en/services`)
 - `next-themes` for light / dark / system theme
-- Lead API (`app/api/leads`) → Closeby webhook + SMTP (Closeby account), honeypot, rate limit and optional Cloudflare Turnstile
+- Lead API (`app/api/leads`) → email via SMTP (Namecheap Private Email, rey@closevibe.com), optional CRM webhook, honeypot, rate limit and optional Cloudflare Turnstile
 - Vercel Web Analytics (cookieless)
 
 ## Where things live
 
 | What | Where |
 |---|---|
-| Contact details, social links, booking URL | `content/site.ts` |
+| Contact details, social links, Calendly URL | `content/site.ts` |
 | Bio, experience, education | `content/profile.ts` |
 | Services (ES/EN) | `content/services.ts` |
 | Case studies (ES/EN) | `content/cases.ts` |
 | Legal pages | `content/legal.ts` |
 | UI texts | `messages/es.json`, `messages/en.json` |
 | Routes and translated paths | `i18n/routing.ts` |
-| Lead delivery (Closeby, SMTP) | `lib/leads.ts`, `lib/lead-schema.ts` |
+| Lead delivery (SMTP, optional webhook) | `lib/leads.ts`, `lib/lead-schema.ts` |
 
 ## Development
 
@@ -36,6 +36,8 @@ npm run build
 
 ## Environment variables
 
-See `.env.example`. Without SMTP or Closeby configured, the contact form works in development (leads are only logged) and returns an error in production so no lead is silently lost.
+See `.env.example`. In Vercel the minimum to make the contact form work is `SMTP_PASS` (host, port and user default to Namecheap Private Email and rey@closevibe.com). `NEXT_PUBLIC_CALENDLY_URL` turns every "Book a call" button into a Calendly link; without it they go to `/contact`. `NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them.
 
-Before going live on the Closeby SMTP, make sure the sending domain has SPF, DKIM and DMARC records so emails don't land in spam.
+Without SMTP configured, the contact form works in development (leads are only logged) and returns an error in production so no lead is silently lost.
+
+Before going live, make sure closevibe.com has SPF, DKIM and DMARC records for Private Email so emails don't land in spam.

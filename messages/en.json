@@ -15,7 +15,7 @@
     "resources": "Resources",
     "about": "About",
     "contact": "Contact",
-    "cta": "Let's talk",
+    "cta": "Book a call",
     "menu": "Open menu",
     "close": "Close menu",
     "skip": "Skip to content"
@@ -32,7 +32,7 @@
     "en": "English"
   },
   "common": {
-    "bookCall": "Book a free discovery call",
+    "bookCall": "Book a call",
     "contactMe": "Tell me about your project",
     "viewServices": "View services",
     "viewCase": "View case",
@@ -42,49 +42,105 @@
     "comingSoon": "Coming soon"
   },
   "home": {
-    "eyebrow": "Technology consulting for companies",
-    "title": "From manual processes to systems that scale",
-    "subtitle": "Custom software, automation and applied AI so your company can grow without adding complexity. Business strategy and technical execution in one team.",
-    "primaryCta": "Book a free discovery call",
-    "secondaryCta": "See case studies",
+    "eyebrow": "Technology consulting · Automation · AI",
+    "title": "From manual work to systems that *scale*",
+    "subtitle": "I design and build the software, automations and AI your company needs to grow without the chaos. Business strategy and technical execution, in one team.",
     "stats": {
-      "years": "years of experience",
+      "years": "years of international experience",
       "regions": "continents: Europe, Asia and the Americas",
-      "cases": "published case studies",
-      "pilots": "in signed enterprise pilots"
+      "cases": "documented case studies",
+      "cost": "reduction in operating costs"
     },
-    "trustedBy": "Companies I've worked with",
-    "problemsTitle": "Sound familiar?",
-    "problems": [
-      "Your team loses hours to repetitive tasks and spreadsheets.",
-      "Your tools don't talk to each other and nobody has the full picture.",
-      "Leads wait days for a reply and go cold.",
-      "You want to use AI but don't know where to start without wasting money.",
-      "You need a digital product or MVP and have no technical team."
-    ],
-    "servicesTitle": "How I help",
-    "servicesSubtitle": "Five lines of work, combined around what your company needs.",
-    "casesTitle": "Real results",
-    "casesSubtitle": "Automation, software and growth projects with SMBs and growing companies.",
-    "processTitle": "How we work",
+    "trustedBy": "Trusted by teams at",
+    "servicesTitle": "Everything you need to *digitalize* your company",
+    "servicesSubtitle": "Five lines of work, combined around where you are: from the first assessment to software in production.",
+    "casesTitle": "Case studies",
+    "casesSubtitle": "Real projects with SMBs and growing companies in Spain, the US, Asia and Latin America.",
+    "processTitle": "A *clear* process, no surprises",
     "process": [
-      { "title": "Discovery", "text": "A 30-minute call to understand your business, processes and goals." },
-      { "title": "Plan", "text": "A proposal with priorities, quick wins, and a fixed scope, timeline and budget." },
-      { "title": "Execution", "text": "We build and roll out in short iterations with visible deliverables." },
-      { "title": "Adoption & improvement", "text": "Training, documentation and measured results to keep improving." }
+      {
+        "title": "Discovery",
+        "text": "A 30-minute call to understand your business, processes and goals."
+      },
+      {
+        "title": "Plan",
+        "text": "A proposal with priorities, quick wins, and a fixed scope, timeline and budget."
+      },
+      {
+        "title": "Execution",
+        "text": "We build and roll out in short iterations with visible deliverables."
+      },
+      {
+        "title": "Adoption & improvement",
+        "text": "Training, documentation and measured results to keep improving."
+      }
     ],
-    "resourcesTitle": "Assess your company for free",
-    "resourcesText": "Soon you'll be able to measure your automation level and digital maturity in a few minutes and get a report with your priorities.",
-    "resourcesCta": "See resources",
-    "aboutTitle": "Business and engineering at the same table",
+    "resourcesTitle": "How automated is *your company*?",
+    "resourcesText": "Coming soon: answer 15 questions and get your score, the processes costing you the most and a prioritized action plan.",
+    "resourcesCta": "See free resources",
+    "aboutTitle": "Business and engineering at the *same table*",
     "aboutCta": "See my background",
-    "faqTitle": "FAQ",
+    "faqTitle": "Frequently asked *questions*",
     "faq": [
-      { "q": "What kind of companies do you work with?", "a": "Mostly SMBs and mid-market companies (10 to 250 people) in Spain, Latin America and the United States, plus startups, software companies and fintechs." },
-      { "q": "Do you work alone or with a team?", "a": "I lead every project personally and work with a development and automation team for execution, so you get a single point of contact and real delivery capacity." },
-      { "q": "How much does a project cost?", "a": "It depends on scope. After the free discovery call you get a fixed proposal. Many clients start with an audit or a short sprint to get quick, low-risk results." },
-      { "q": "Do you work remotely?", "a": "Yes. I'm based in Barcelona and work remotely with clients worldwide, in English and Spanish." }
-    ]
+      {
+        "q": "What kind of companies do you work with?",
+        "a": "Mostly SMBs and mid-market companies (10 to 250 people) in Spain, Latin America and the United States, plus startups, software companies and fintechs."
+      },
+      {
+        "q": "Do you work alone or with a team?",
+        "a": "I lead every project personally and work with a development and automation team for execution, so you get a single point of contact and real delivery capacity."
+      },
+      {
+        "q": "How much does a project cost?",
+        "a": "It depends on scope. After the free discovery call you get a fixed proposal. Many clients start with an audit or a short sprint to get quick, low-risk results."
+      },
+      {
+        "q": "Do you work remotely?",
+        "a": "Yes. I'm based in Barcelona and work remotely with clients worldwide, in English and Spanish."
+      }
+    ],
+    "available": "Available for new projects",
+    "beforeAfterTitle": "What changes when your operation *runs itself*",
+    "before": "Today",
+    "after": "With a system",
+    "beforeItems": [
+      "Hours copying data between spreadsheets",
+      "Leads waiting days for a reply",
+      "Tools that don't talk to each other",
+      "Decisions made blind, without reliable data",
+      "Growing means hiring more people"
+    ],
+    "afterItems": [
+      "End-to-end automated workflows",
+      "Every lead answered in minutes, with AI",
+      "Integrated systems and one source of truth",
+      "Real-time dashboards",
+      "Scale without growing fixed costs"
+    ],
+    "statsTitle": "Experience that *shows* in the results",
+    "scoreLabel": "Automation score",
+    "scoreAreas": [
+      "Sales",
+      "Operations",
+      "Finance",
+      "Customer service",
+      "Reporting"
+    ],
+    "aboutQuote": "Technology is only worth what it improves in your business. My job is to make every line of code and every automation show up in your numbers.",
+    "ctaTitle": "Let's talk about *your project*",
+    "ctaText": "A 30-minute call, no strings attached. You'll leave with a clear idea of what to automate first and how much you can save.",
+    "beforeAfterEyebrow": "The shift",
+    "statsEyebrow": "By the numbers",
+    "faqEyebrow": "Questions",
+    "heroWorkflow": "Live workflow",
+    "heroRole": "Technology consultant · Barcelona",
+    "scoreExample": "Sample report",
+    "scoreOutOf": "out of 100",
+    "resourcesEyebrow": "Free resources",
+    "casesEyebrow": "Case studies",
+    "servicesEyebrow": "Services",
+    "processEyebrow": "How I work",
+    "aboutEyebrow": "About"
   },
   "services": {
     "title": "Services",
@@ -94,8 +150,11 @@
     "outcomes": "Outcomes we aim for",
     "relatedCases": "Related case studies",
     "relatedServices": "Complementary services",
-    "ctaTitle": "Shall we talk about your case?",
-    "ctaText": "In 30 minutes we'll see if it's a fit and what the first steps would be. No commitment."
+    "ctaTitle": "Shall we talk about *your case*?",
+    "ctaText": "In 30 minutes we'll see if it's a fit and what the first steps would be. No commitment.",
+    "heroTitle": "Technology that shows up in *your numbers*",
+    "detailEyebrow": "Service",
+    "eyebrow": "Services"
   },
   "cases": {
     "title": "Case studies",
@@ -108,8 +167,11 @@
     "location": "Location",
     "duration": "Duration",
     "servicesUsed": "Services",
-    "ctaTitle": "Want results like these?",
-    "ctaText": "Tell me about your situation and I'll propose a concrete plan."
+    "ctaTitle": "Want results *like these*?",
+    "ctaText": "Tell me about your situation and I'll propose a concrete plan.",
+    "heroTitle": "*Real* results for real companies",
+    "more": "More projects",
+    "eyebrow": "Case studies"
   },
   "about": {
     "title": "About me",
@@ -117,28 +179,58 @@
     "education": "Education & certifications",
     "approach": "How I work",
     "languages": "Languages",
-    "photoAlt": "Rey Ortiz at a technology event"
+    "photoAlt": "Rey Ortiz at a technology event",
+    "heroTitle": "I turn manual processes into *systems* that scale",
+    "eyebrow": "About",
+    "gallery": "At events and with clients"
   },
   "resources": {
     "title": "Free resources",
     "subtitle": "Tools to assess your company, plan your next steps and learn to grow with AI and automation.",
     "notice": "We're preparing these resources. If you'd like early access, send me a message and I'll let you know.",
     "items": [
-      { "title": "Automation audit", "text": "Find out which processes to automate first and how much time and money you can save.", "tag": "Assessment" },
-      { "title": "Digital maturity", "text": "Measure where your company stands on strategy, processes, data, tools and people.", "tag": "Assessment" },
-      { "title": "AI roadmap builder", "text": "Get a personalized 90-day plan with quick wins, initiatives and KPIs.", "tag": "AI" },
-      { "title": "ROI calculator", "text": "Calculate the yearly savings and payback of automating a process.", "tag": "Calculator" },
-      { "title": "Videos & training", "text": "Campaigns with Claude and Meta Ads, AI content, sales automation and more.", "tag": "Video" },
-      { "title": "Templates", "text": "Prompt packs, automation checklists and templates to specify your software.", "tag": "Download" }
+      {
+        "title": "Automation audit",
+        "text": "Find out which processes to automate first and how much time and money you can save.",
+        "tag": "Assessment"
+      },
+      {
+        "title": "Digital maturity",
+        "text": "Measure where your company stands on strategy, processes, data, tools and people.",
+        "tag": "Assessment"
+      },
+      {
+        "title": "AI roadmap builder",
+        "text": "Get a personalized 90-day plan with quick wins, initiatives and KPIs.",
+        "tag": "AI"
+      },
+      {
+        "title": "ROI calculator",
+        "text": "Calculate the yearly savings and payback of automating a process.",
+        "tag": "Calculator"
+      },
+      {
+        "title": "Videos & training",
+        "text": "Campaigns with Claude and Meta Ads, AI content, sales automation and more.",
+        "tag": "Video"
+      },
+      {
+        "title": "Templates",
+        "text": "Prompt packs, automation checklists and templates to specify your software.",
+        "tag": "Download"
+      }
     ],
-    "cta": "Let me know when they're ready"
+    "cta": "Let me know when they're ready",
+    "heroTitle": "*Free* tools to make better decisions",
+    "eyebrow": "Resources",
+    "ctaTitle": "Want *early access*?"
   },
   "contact": {
-    "title": "Let's talk about your project",
+    "title": "Let's talk about *your project*",
     "subtitle": "Tell me what you need and I'll get back to you as soon as possible with next steps.",
     "direct": "Direct contact",
     "bookTitle": "Prefer to talk right away?",
-    "bookText": "Book a free 30-minute discovery call.",
+    "bookText": "Book a 30-minute call on my calendar.",
     "form": {
       "name": "Name",
       "email": "Work email",
@@ -163,20 +255,29 @@
       "error": "The message couldn't be sent. Please try again or email me at {email}.",
       "rateLimited": "You've sent several messages in a row. Please wait a few minutes and try again.",
       "invalid": "Please check the highlighted fields."
-    }
+    },
+    "why": "What happens next",
+    "steps": [
+      "I read your message and reply personally.",
+      "We book a 30-minute call to understand your case.",
+      "You get a clear proposal with scope, timeline and price."
+    ],
+    "eyebrow": "Contact"
   },
   "footer": {
     "tagline": "Automation, AI and custom software for companies that want to grow without complexity.",
     "explore": "Explore",
     "legal": "Legal",
     "contact": "Contact",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "location": "Barcelona, Spain"
   },
   "legal": {
     "aviso-legal": "Legal notice",
     "privacidad": "Privacy policy",
     "cookies": "Cookie policy",
-    "updated": "Last updated"
+    "updated": "Last updated",
+    "eyebrow": "Legal"
   },
   "notFound": {
     "title": "Page not found",

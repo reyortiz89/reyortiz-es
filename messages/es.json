@@ -15,7 +15,7 @@
     "resources": "Recursos",
     "about": "Sobre mí",
     "contact": "Contacto",
-    "cta": "Hablemos",
+    "cta": "Agenda una llamada",
     "menu": "Abrir menú",
     "close": "Cerrar menú",
     "skip": "Saltar al contenido"
@@ -32,7 +32,7 @@
     "en": "English"
   },
   "common": {
-    "bookCall": "Agendar diagnóstico gratuito",
+    "bookCall": "Agenda una llamada",
     "contactMe": "Cuéntame tu proyecto",
     "viewServices": "Ver servicios",
     "viewCase": "Ver caso",
@@ -42,49 +42,105 @@
     "comingSoon": "Próximamente"
   },
   "home": {
-    "eyebrow": "Consultoría tecnológica para empresas",
-    "title": "De procesos manuales a sistemas que escalan",
-    "subtitle": "Software a medida, automatización e IA aplicada para que tu empresa crezca sin añadir complejidad. Estrategia de negocio y ejecución técnica en un mismo equipo.",
-    "primaryCta": "Agendar diagnóstico gratuito",
-    "secondaryCta": "Ver casos de éxito",
+    "eyebrow": "Consultoría tecnológica · Automatización · IA",
+    "title": "De procesos manuales a sistemas que *escalan*",
+    "subtitle": "Diseño y construyo el software, las automatizaciones y la IA que tu empresa necesita para crecer sin añadir caos. Estrategia de negocio y ejecución técnica, en un mismo equipo.",
     "stats": {
-      "years": "años de experiencia",
+      "years": "años de experiencia internacional",
       "regions": "continentes: Europa, Asia y América",
-      "cases": "casos de éxito publicados",
-      "pilots": "en pilotos enterprise firmados"
+      "cases": "casos de éxito documentados",
+      "cost": "de reducción de costes operativos"
     },
-    "trustedBy": "Empresas con las que he trabajado",
-    "problemsTitle": "¿Te suena alguno de estos problemas?",
-    "problems": [
-      "Tu equipo pierde horas en tareas repetitivas y hojas de cálculo.",
-      "Tus herramientas no se hablan entre sí y nadie tiene la foto completa.",
-      "Los leads esperan días por una respuesta y se enfrían.",
-      "Quieres usar IA, pero no sabes por dónde empezar sin tirar el dinero.",
-      "Necesitas un producto digital o MVP y no tienes equipo técnico."
-    ],
-    "servicesTitle": "Cómo te ayudo",
-    "servicesSubtitle": "Cinco líneas de trabajo que se combinan según lo que necesite tu empresa.",
-    "casesTitle": "Resultados reales",
-    "casesSubtitle": "Proyectos de automatización, software y crecimiento con pymes y empresas en crecimiento.",
-    "processTitle": "Cómo trabajamos",
+    "trustedBy": "Han confiado en mi trabajo",
+    "servicesTitle": "Todo lo que necesitas para *digitalizar* tu empresa",
+    "servicesSubtitle": "Cinco líneas de trabajo que se combinan según tu momento: desde el primer diagnóstico hasta el software en producción.",
+    "casesTitle": "Casos de éxito",
+    "casesSubtitle": "Proyectos reales con pymes y empresas en crecimiento en España, EE. UU., Asia y Latinoamérica.",
+    "processTitle": "Un proceso *claro*, sin sorpresas",
     "process": [
-      { "title": "Diagnóstico", "text": "Una llamada de 30 minutos para entender tu negocio, tus procesos y tus objetivos." },
-      { "title": "Plan", "text": "Propuesta con prioridades, quick wins, alcance, plazos y presupuesto cerrados." },
-      { "title": "Ejecución", "text": "Construimos e implantamos por iteraciones cortas, con entregas visibles." },
-      { "title": "Adopción y mejora", "text": "Formación, documentación y medición de resultados para seguir mejorando." }
+      {
+        "title": "Diagnóstico",
+        "text": "Una llamada de 30 minutos para entender tu negocio, tus procesos y tus objetivos."
+      },
+      {
+        "title": "Plan",
+        "text": "Propuesta con prioridades, quick wins, alcance, plazos y presupuesto cerrados."
+      },
+      {
+        "title": "Ejecución",
+        "text": "Construimos e implantamos por iteraciones cortas, con entregas visibles."
+      },
+      {
+        "title": "Adopción y mejora",
+        "text": "Formación, documentación y medición de resultados para seguir mejorando."
+      }
     ],
-    "resourcesTitle": "Evalúa tu empresa gratis",
-    "resourcesText": "Pronto podrás medir tu nivel de automatización y madurez digital en pocos minutos y recibir un informe con tus prioridades.",
-    "resourcesCta": "Ver recursos",
-    "aboutTitle": "Negocio e ingeniería en la misma mesa",
+    "resourcesTitle": "¿Cómo de automatizada está *tu empresa*?",
+    "resourcesText": "Muy pronto: responde 15 preguntas y recibe tu puntuación, los procesos que más dinero te cuestan y un plan de acción priorizado.",
+    "resourcesCta": "Ver recursos gratuitos",
+    "aboutTitle": "Negocio e ingeniería en la *misma mesa*",
     "aboutCta": "Conoce mi trayectoria",
-    "faqTitle": "Preguntas frecuentes",
+    "faqTitle": "Preguntas *frecuentes*",
     "faq": [
-      { "q": "¿Con qué tipo de empresas trabajas?", "a": "Sobre todo pymes y empresas mid-market (de 10 a 250 personas) en España, Latinoamérica y Estados Unidos, además de startups y empresas de software y fintech." },
-      { "q": "¿Trabajas solo o con equipo?", "a": "Dirijo cada proyecto personalmente y cuento con un equipo de desarrollo y automatización para la ejecución, de modo que tienes un único interlocutor y capacidad de entrega real." },
-      { "q": "¿Cuánto cuesta un proyecto?", "a": "Depende del alcance. Tras el diagnóstico gratuito recibes una propuesta cerrada. Muchos clientes empiezan con una auditoría o un sprint corto para obtener resultados rápidos con poco riesgo." },
-      { "q": "¿Trabajáis en remoto?", "a": "Sí. Estoy en Barcelona y trabajo en remoto con clientes de todo el mundo, en español e inglés." }
-    ]
+      {
+        "q": "¿Con qué tipo de empresas trabajas?",
+        "a": "Sobre todo pymes y empresas mid-market (de 10 a 250 personas) en España, Latinoamérica y Estados Unidos, además de startups y empresas de software y fintech."
+      },
+      {
+        "q": "¿Trabajas solo o con equipo?",
+        "a": "Dirijo cada proyecto personalmente y cuento con un equipo de desarrollo y automatización para la ejecución, de modo que tienes un único interlocutor y capacidad de entrega real."
+      },
+      {
+        "q": "¿Cuánto cuesta un proyecto?",
+        "a": "Depende del alcance. Tras el diagnóstico gratuito recibes una propuesta cerrada. Muchos clientes empiezan con una auditoría o un sprint corto para obtener resultados rápidos con poco riesgo."
+      },
+      {
+        "q": "¿Trabajas en remoto?",
+        "a": "Sí. Estoy en Barcelona y trabajo en remoto con clientes de todo el mundo, en español e inglés."
+      }
+    ],
+    "available": "Disponible para nuevos proyectos",
+    "beforeAfterTitle": "Lo que cambia cuando tu operación *trabaja sola*",
+    "before": "Hoy",
+    "after": "Con un sistema",
+    "beforeItems": [
+      "Horas copiando datos entre hojas de cálculo",
+      "Leads que esperan días una respuesta",
+      "Herramientas que no se hablan entre sí",
+      "Decisiones a ciegas, sin datos fiables",
+      "Crecer significa contratar más gente"
+    ],
+    "afterItems": [
+      "Flujos automáticos de punta a punta",
+      "Respuesta a cada lead en minutos, con IA",
+      "Sistemas integrados y una sola fuente de verdad",
+      "Cuadros de mando en tiempo real",
+      "Escalas sin aumentar costes fijos"
+    ],
+    "statsTitle": "Experiencia que se *nota* en los resultados",
+    "scoreLabel": "Puntuación de automatización",
+    "scoreAreas": [
+      "Ventas",
+      "Operaciones",
+      "Finanzas",
+      "Atención al cliente",
+      "Reporting"
+    ],
+    "aboutQuote": "La tecnología solo vale lo que mejora tu negocio. Mi trabajo es que cada línea de código y cada automatización se note en tus números.",
+    "ctaTitle": "¿Hablamos de *tu proyecto*?",
+    "ctaText": "Una llamada de 30 minutos, sin compromiso. Saldrás con una idea clara de qué automatizar primero y cuánto puedes ahorrar.",
+    "beforeAfterEyebrow": "El cambio",
+    "statsEyebrow": "En cifras",
+    "faqEyebrow": "Preguntas",
+    "heroWorkflow": "Flujo activo",
+    "heroRole": "Consultor tecnológico · Barcelona",
+    "scoreExample": "Informe de ejemplo",
+    "scoreOutOf": "de 100",
+    "resourcesEyebrow": "Recursos gratis",
+    "casesEyebrow": "Casos de éxito",
+    "servicesEyebrow": "Servicios",
+    "processEyebrow": "Cómo trabajo",
+    "aboutEyebrow": "Sobre mí"
   },
   "services": {
     "title": "Servicios",
@@ -94,8 +150,11 @@
     "outcomes": "Resultados que buscamos",
     "relatedCases": "Casos relacionados",
     "relatedServices": "Servicios complementarios",
-    "ctaTitle": "¿Hablamos de tu caso?",
-    "ctaText": "En 30 minutos vemos si encaja y cuáles serían los primeros pasos. Sin compromiso."
+    "ctaTitle": "¿Hablamos de *tu caso*?",
+    "ctaText": "En 30 minutos vemos si encaja y cuáles serían los primeros pasos. Sin compromiso.",
+    "heroTitle": "Tecnología que se nota en *tus números*",
+    "detailEyebrow": "Servicio",
+    "eyebrow": "Servicios"
   },
   "cases": {
     "title": "Casos de éxito",
@@ -108,8 +167,11 @@
     "location": "Ubicación",
     "duration": "Duración",
     "servicesUsed": "Servicios",
-    "ctaTitle": "¿Quieres resultados así en tu empresa?",
-    "ctaText": "Cuéntame tu situación y te propongo un plan concreto."
+    "ctaTitle": "¿Quieres resultados *como estos*?",
+    "ctaText": "Cuéntame tu situación y te propongo un plan concreto.",
+    "heroTitle": "Resultados *reales* para empresas reales",
+    "more": "Más proyectos",
+    "eyebrow": "Casos de éxito"
   },
   "about": {
     "title": "Sobre mí",
@@ -117,28 +179,58 @@
     "education": "Formación y certificaciones",
     "approach": "Cómo trabajo",
     "languages": "Idiomas",
-    "photoAlt": "Rey Ortiz en un evento tecnológico"
+    "photoAlt": "Rey Ortiz en un evento tecnológico",
+    "heroTitle": "Convierto procesos manuales en *sistemas* que escalan",
+    "eyebrow": "Sobre mí",
+    "gallery": "En eventos y con clientes"
   },
   "resources": {
     "title": "Recursos gratuitos",
     "subtitle": "Herramientas para que evalúes tu empresa, planifiques los siguientes pasos y aprendas a crecer con IA y automatización.",
     "notice": "Estamos preparando estos recursos. Si quieres ser de los primeros en usarlos, escríbeme y te aviso.",
     "items": [
-      { "title": "Auditoría de automatización", "text": "Descubre qué procesos automatizar primero y cuánto tiempo y dinero puedes ahorrar.", "tag": "Evaluación" },
-      { "title": "Madurez digital", "text": "Mide en qué punto está tu empresa en estrategia, procesos, datos, herramientas y personas.", "tag": "Evaluación" },
-      { "title": "Generador de roadmap con IA", "text": "Obtén un plan personalizado de 90 días con quick wins, iniciativas y KPIs.", "tag": "IA" },
-      { "title": "Calculadora de ROI", "text": "Calcula el ahorro anual y el retorno de automatizar un proceso.", "tag": "Calculadora" },
-      { "title": "Vídeos y formación", "text": "Campañas con Claude y Meta Ads, contenido con IA, automatización de ventas y más.", "tag": "Vídeo" },
-      { "title": "Plantillas", "text": "Packs de prompts, checklists de automatización y plantillas para especificar tu software.", "tag": "Descargable" }
+      {
+        "title": "Auditoría de automatización",
+        "text": "Descubre qué procesos automatizar primero y cuánto tiempo y dinero puedes ahorrar.",
+        "tag": "Evaluación"
+      },
+      {
+        "title": "Madurez digital",
+        "text": "Mide en qué punto está tu empresa en estrategia, procesos, datos, herramientas y personas.",
+        "tag": "Evaluación"
+      },
+      {
+        "title": "Generador de roadmap con IA",
+        "text": "Obtén un plan personalizado de 90 días con quick wins, iniciativas y KPIs.",
+        "tag": "IA"
+      },
+      {
+        "title": "Calculadora de ROI",
+        "text": "Calcula el ahorro anual y el retorno de automatizar un proceso.",
+        "tag": "Calculadora"
+      },
+      {
+        "title": "Vídeos y formación",
+        "text": "Campañas con Claude y Meta Ads, contenido con IA, automatización de ventas y más.",
+        "tag": "Vídeo"
+      },
+      {
+        "title": "Plantillas",
+        "text": "Packs de prompts, checklists de automatización y plantillas para especificar tu software.",
+        "tag": "Descargable"
+      }
     ],
-    "cta": "Avísame cuando estén listos"
+    "cta": "Avísame cuando estén listos",
+    "heroTitle": "Herramientas *gratis* para decidir mejor",
+    "eyebrow": "Recursos",
+    "ctaTitle": "¿Quieres *acceso anticipado*?"
   },
   "contact": {
-    "title": "Hablemos de tu proyecto",
+    "title": "Hablemos de *tu proyecto*",
     "subtitle": "Cuéntame qué necesitas y te respondo lo antes posible con los siguientes pasos.",
     "direct": "Contacto directo",
     "bookTitle": "¿Prefieres hablar directamente?",
-    "bookText": "Reserva un diagnóstico gratuito de 30 minutos.",
+    "bookText": "Reserva una llamada de 30 minutos en mi agenda.",
     "form": {
       "name": "Nombre",
       "email": "Email de trabajo",
@@ -163,20 +255,29 @@
       "error": "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme a {email}.",
       "rateLimited": "Has enviado varios mensajes seguidos. Espera unos minutos e inténtalo de nuevo.",
       "invalid": "Revisa los campos marcados."
-    }
+    },
+    "why": "Qué pasa después",
+    "steps": [
+      "Leo tu mensaje y te respondo personalmente.",
+      "Agendamos una llamada de 30 minutos para entender tu caso.",
+      "Recibes una propuesta clara con alcance, plazos y precio."
+    ],
+    "eyebrow": "Contacto"
   },
   "footer": {
     "tagline": "Automatización, IA y software a medida para empresas que quieren crecer sin complejidad.",
     "explore": "Explorar",
     "legal": "Legal",
     "contact": "Contacto",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "location": "Barcelona, España"
   },
   "legal": {
     "aviso-legal": "Aviso legal",
     "privacidad": "Política de privacidad",
     "cookies": "Política de cookies",
-    "updated": "Última actualización"
+    "updated": "Última actualización",
+    "eyebrow": "Legal"
   },
   "notFound": {
     "title": "Página no encontrada",

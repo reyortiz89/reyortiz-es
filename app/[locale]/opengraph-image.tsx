@@ -22,31 +22,39 @@ export default async function OpengraphImage({ params }: { params: Promise<{ loc
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "linear-gradient(135deg, #070b14 0%, #13204a 60%, #1a3fb8 100%)",
-          color: "#e8edf5",
+          background: "radial-gradient(circle at 85% 0%, rgba(198,242,78,0.28), transparent 55%), #09090b",
+          color: "#f3f3ee",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20, fontSize: 32, fontWeight: 700 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 30, fontWeight: 500 }}>
           <div
             style={{
               display: "flex",
-              width: 64,
-              height: 64,
-              borderRadius: 14,
-              background: "#5b84ff",
-              color: "#070b14",
+              width: 56,
+              height: 56,
+              borderRadius: 28,
+              background: "#f3f3ee",
+              color: "#09090b",
               alignItems: "center",
               justifyContent: "center",
+              fontStyle: "italic",
+              fontFamily: "serif",
+              fontSize: 34,
             }}
           >
-            RO
+            R
           </div>
           Rey Ortiz
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ fontSize: 64, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>{profile.headline[locale]}</div>
-          <div style={{ fontSize: 28, color: "#9aa6b8" }}>reyortiz.es</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          <div style={{ fontSize: 68, fontWeight: 500, lineHeight: 1.05, letterSpacing: -2, maxWidth: 1020 }}>
+            {profile.headline[locale]}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#a1a19a" }}>
+            <div style={{ display: "flex", width: 14, height: 14, borderRadius: 7, background: "#c6f24e" }} />
+            reyortiz.es
+          </div>
         </div>
       </div>
     ),

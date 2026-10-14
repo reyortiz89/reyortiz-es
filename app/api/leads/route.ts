@@ -22,8 +22,8 @@ export async function POST(req: Request) {
   }
 
   const result = await deliverLead(parsed.data);
-  const delivered = result.closeby === true || result.email === true;
-  const nothingConfigured = result.closeby === null && result.email === null;
+  const delivered = result.webhook === true || result.email === true;
+  const nothingConfigured = result.webhook === null && result.email === null;
 
   if (nothingConfigured) {
     console.warn("[leads] no delivery channel configured; lead received:", parsed.data.email);

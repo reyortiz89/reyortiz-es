@@ -2,8 +2,8 @@ import type { Locale } from "@/i18n/routing";
 import { site } from "./site";
 
 /**
- * Legal pages (LSSI-CE / RGPD). Template text: have it reviewed and fill in the
- * NIF before relying on it.
+ * Legal pages (LSSI-CE / RGPD). Template text: have it reviewed before relying
+ * on it, and add the NIF to `owner` once it should be published.
  */
 export const legalSlugs = ["aviso-legal", "privacidad", "cookies"] as const;
 export type LegalSlug = (typeof legalSlugs)[number];
@@ -14,12 +14,9 @@ export const legalUpdated = "2026-10-14";
 
 const owner = {
   name: site.legalName,
-  nif: process.env.NEXT_PUBLIC_LEGAL_NIF ?? "",
   city: "Barcelona, España",
   email: site.email,
 };
-
-const nifLine = owner.nif ? `NIF: ${owner.nif}.` : "";
 
 export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
   "aviso-legal": {
@@ -27,7 +24,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
       {
         heading: "Titular del sitio web",
         body: [
-          `En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que el titular de ${site.url} es ${owner.name}, con domicilio en ${owner.city}. ${nifLine} Email de contacto: ${owner.email}.`,
+          `En cumplimiento de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de que el titular de ${site.url} es ${owner.name}, con domicilio en ${owner.city}. Email de contacto: ${owner.email}.`,
         ],
       },
       {
@@ -57,7 +54,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
       {
         heading: "Website owner",
         body: [
-          `In accordance with Spanish Law 34/2002 (LSSI-CE), the owner of ${site.url} is ${owner.name}, based in ${owner.city}. ${nifLine} Contact email: ${owner.email}.`,
+          `In accordance with Spanish Law 34/2002 (LSSI-CE), the owner of ${site.url} is ${owner.name}, based in ${owner.city}. Contact email: ${owner.email}.`,
         ],
       },
       {
@@ -88,7 +85,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
     es: [
       {
         heading: "Responsable del tratamiento",
-        body: [`${owner.name}, ${owner.city}. ${nifLine} Email: ${owner.email}.`],
+        body: [`${owner.name}, ${owner.city}. Email: ${owner.email}.`],
       },
       {
         heading: "Qué datos tratamos y para qué",
@@ -106,7 +103,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
       {
         heading: "Destinatarios y encargados",
         body: [
-          "Para prestar el servicio usamos proveedores que actúan como encargados del tratamiento: Vercel (alojamiento web), Closeby (gestión de contactos y comunicaciones) y el proveedor de correo electrónico asociado a nuestra cuenta. Algunos pueden tratar datos fuera del Espacio Económico Europeo con las garantías adecuadas (cláusulas contractuales tipo). No cedemos tus datos a terceros con fines comerciales.",
+          "Para prestar el servicio usamos proveedores que actúan como encargados del tratamiento: Vercel Inc. (alojamiento web) y Namecheap Private Email (correo electrónico). Algunos pueden tratar datos fuera del Espacio Económico Europeo con las garantías adecuadas (cláusulas contractuales tipo). No cedemos tus datos a terceros con fines comerciales.",
         ],
       },
       {
@@ -125,7 +122,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
     en: [
       {
         heading: "Data controller",
-        body: [`${owner.name}, ${owner.city}. ${nifLine} Email: ${owner.email}.`],
+        body: [`${owner.name}, ${owner.city}. Email: ${owner.email}.`],
       },
       {
         heading: "What data we process and why",
@@ -143,7 +140,7 @@ export const legal: Record<LegalSlug, Record<Locale, Block[]>> = {
       {
         heading: "Recipients and processors",
         body: [
-          "To provide the service we use processors: Vercel (web hosting), Closeby (contact management and communications) and the email provider linked to our account. Some may process data outside the European Economic Area under appropriate safeguards (standard contractual clauses). We do not sell or share your data for marketing purposes.",
+          "To provide the service we use processors: Vercel Inc. (web hosting) and Namecheap Private Email (email). Some may process data outside the European Economic Area under appropriate safeguards (standard contractual clauses). We do not sell or share your data for marketing purposes.",
         ],
       },
       {
