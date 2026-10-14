@@ -6,13 +6,15 @@
     "cases": "Casos de éxito",
     "about": "Sobre mí",
     "contact": "Contacto",
-    "resources": "Recursos gratuitos para empresas"
+    "resources": "Recursos gratuitos para empresas",
+    "videos": "Vídeos gratuitos sobre IA, automatización y ventas"
   },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
     "cases": "Casos",
     "resources": "Recursos",
+    "videos": "Vídeos",
     "about": "Sobre mí",
     "contact": "Contacto",
     "cta": "Agenda una llamada",
@@ -76,8 +78,8 @@
       }
     ],
     "resourcesTitle": "¿Cómo de automatizada está *tu empresa*?",
-    "resourcesText": "Muy pronto: responde 15 preguntas y recibe tu puntuación, los procesos que más dinero te cuestan y un plan de acción priorizado.",
-    "resourcesCta": "Ver recursos gratuitos",
+    "resourcesText": "Responde 15 preguntas en 5 minutos y descubre tu puntuación, los procesos que más tiempo te cuestan y por dónde empezar a automatizar.",
+    "resourcesCta": "Haz la auditoría gratis",
     "aboutTitle": "Negocio e ingeniería en la *misma mesa*",
     "aboutCta": "Conoce mi trayectoria",
     "faqTitle": "Preguntas *frecuentes*",
@@ -147,7 +149,8 @@
       "Revisamos tus procesos y objetivos",
       "Sales con los primeros pasos claros"
     ],
-    "bookingAlt": "¿Prefieres escribirme?"
+    "bookingAlt": "¿Prefieres escribirme?",
+    "resourcesAll": "Ver todos los recursos"
   },
   "services": {
     "title": "Servicios",
@@ -192,45 +195,157 @@
     "gallery": "En eventos y con clientes"
   },
   "resources": {
-    "title": "Recursos gratuitos",
-    "subtitle": "Herramientas para que evalúes tu empresa, planifiques los siguientes pasos y aprendas a crecer con IA y automatización.",
-    "notice": "Estamos preparando estos recursos. Si quieres ser de los primeros en usarlos, escríbeme y te aviso.",
-    "items": [
-      {
-        "title": "Auditoría de automatización",
-        "text": "Descubre qué procesos automatizar primero y cuánto tiempo y dinero puedes ahorrar.",
-        "tag": "Evaluación"
-      },
-      {
-        "title": "Madurez digital",
-        "text": "Mide en qué punto está tu empresa en estrategia, procesos, datos, herramientas y personas.",
-        "tag": "Evaluación"
-      },
-      {
-        "title": "Generador de roadmap con IA",
-        "text": "Obtén un plan personalizado de 90 días con quick wins, iniciativas y KPIs.",
-        "tag": "IA"
-      },
-      {
-        "title": "Calculadora de ROI",
-        "text": "Calcula el ahorro anual y el retorno de automatizar un proceso.",
-        "tag": "Calculadora"
-      },
-      {
-        "title": "Vídeos y formación",
-        "text": "Campañas con Claude y Meta Ads, contenido con IA, automatización de ventas y más.",
-        "tag": "Vídeo"
-      },
-      {
-        "title": "Plantillas",
-        "text": "Packs de prompts, checklists de automatización y plantillas para especificar tu software.",
-        "tag": "Descargable"
-      }
-    ],
-    "cta": "Avísame cuando estén listos",
-    "heroTitle": "Herramientas *gratis* para decidir mejor",
     "eyebrow": "Recursos",
-    "ctaTitle": "¿Quieres *acceso anticipado*?"
+    "title": "Recursos gratuitos",
+    "heroTitle": "Herramientas *gratis* para decidir mejor",
+    "subtitle": "Evalúa tu empresa en minutos, calcula el retorno de automatizar y aprende con vídeos prácticos sobre IA, ventas y operaciones.",
+    "back": "Todos los recursos",
+    "videosCount": "{count} episodios prácticos",
+    "items": {
+      "audit": {
+        "title": "Auditoría de automatización",
+        "text": "Descubre qué procesos automatizar primero y cuántas horas puedes recuperar cada mes.",
+        "tag": "Evaluación · 5 min",
+        "cta": "Empezar la auditoría"
+      },
+      "maturity": {
+        "title": "Madurez digital",
+        "text": "Mide tu nivel del 1 al 5 en estrategia, procesos, datos, herramientas, personas y cliente.",
+        "tag": "Evaluación · 4 min",
+        "cta": "Medir mi madurez"
+      },
+      "roi": {
+        "title": "Calculadora de ROI",
+        "text": "Calcula el ahorro anual y en cuántos meses se paga una automatización.",
+        "tag": "Calculadora",
+        "cta": "Calcular"
+      },
+      "videos": {
+        "title": "Vídeos y formación",
+        "text": "Meta Ads con Claude, contenido con IA, ventas automatizadas, agentes y más. Casos reales, paso a paso.",
+        "tag": "Vídeo",
+        "cta": "Ver la biblioteca"
+      },
+      "roadmap": {
+        "title": "Generador de roadmap con IA",
+        "text": "Un plan de 90 días con quick wins, responsables y KPIs.",
+        "tag": "IA",
+        "cta": ""
+      },
+      "templates": {
+        "title": "Plantillas",
+        "text": "Prompts, checklists de automatización y plantillas para especificar software.",
+        "tag": "Descargable",
+        "cta": ""
+      }
+    },
+    "ctaTitle": "¿Lo revisamos *juntos*?",
+    "ctaText": "Si ya tienes tu resultado o una idea en mente, en 30 minutos vemos qué automatizar primero y cuánto puedes ganar."
+  },
+  "assessments": {
+    "eyebrowAudit": "Auditoría gratuita",
+    "eyebrowMaturity": "Evaluación gratuita",
+    "minutes": "{minutes} minutos",
+    "questions": "{count} preguntas",
+    "reportByEmail": "Informe por email",
+    "youGet": "Lo que vas a obtener",
+    "areas": "Qué evaluamos",
+    "context": "Para estimar tu ahorro",
+    "questionOf": "{current} de {total}",
+    "back": "Anterior",
+    "next": "Siguiente",
+    "outOf": "de 100",
+    "resultTitle": "Tu resultado",
+    "byArea": "Puntuación por área",
+    "gateTitle": "Recibe tu informe completo",
+    "gateText": "Te lo envío al email al momento y también lo verás aquí abajo.",
+    "gateItemsAudit": [
+      "Tus 5 prioridades de automatización",
+      "Horas y euros que puedes ahorrar al año",
+      "Por dónde empezar en tus áreas más débiles"
+    ],
+    "gateItemsMaturity": [
+      "Tu nivel de madurez explicado",
+      "Las 5 mejoras con más impacto",
+      "Por dónde empezar para subir de nivel"
+    ],
+    "gateSubmit": "Ver mi informe",
+    "emailed": "Listo. También te he enviado el informe a {email}.",
+    "priorities": "Tus prioridades",
+    "estimateTitle": "Ahorro estimado",
+    "hoursMonth": "{hours} h/mes",
+    "eurosYear": "≈ {amount} € al año",
+    "estimateNote": "Estimación orientativa con un coste de {cost} €/hora. En una llamada lo calculamos con tus datos reales.",
+    "whereToStart": "Por dónde empezar",
+    "reviewTitle": "¿Lo revisamos juntos?",
+    "reviewText": "30 minutos para convertir este informe en un plan concreto. Sin compromiso.",
+    "reviewCta": "Agendar revisión gratuita",
+    "restart": "Volver a empezar"
+  },
+  "roi": {
+    "title": "Calculadora de ROI de automatización",
+    "eyebrow": "Calculadora gratuita",
+    "heroTitle": "¿Cuánto te cuesta *no automatizar*?",
+    "subtitle": "Mueve los controles con los datos de un proceso repetitivo y mira cuánto ahorrarías al año y en cuánto tiempo se paga la inversión.",
+    "fields": {
+      "people": "Personas que hacen la tarea",
+      "hours": "Horas por persona a la semana",
+      "cost": "Coste por hora",
+      "share": "Parte automatizable",
+      "investment": "Inversión estimada"
+    },
+    "hints": {
+      "people": "Quién copia datos, prepara informes, responde lo mismo una y otra vez…",
+      "hours": "Tiempo que dedica cada una a esa tarea repetitiva.",
+      "cost": "Coste de empresa por hora (salario bruto más cargas).",
+      "share": "Lo habitual en procesos repetitivos está entre el 50 % y el 80 %.",
+      "investment": "Coste de implantar la automatización. Un proyecto típico va de 3.000 € a 15.000 €."
+    },
+    "savingsYear": "Ahorro estimado al año",
+    "hoursYear": "{hours} horas liberadas al año",
+    "payback": "Se paga en",
+    "immediate": "Inmediato",
+    "months": "{months} meses",
+    "roiYear": "ROI el primer año",
+    "note": "Cálculo orientativo con {weeks} semanas laborables al año. No incluye el valor de responder más rápido, cometer menos errores ni crecer sin contratar.",
+    "ctaTitle": "Pongamos *números reales*",
+    "ctaText": "En 30 minutos revisamos tu proceso y te digo cuánto costaría automatizarlo y qué retorno esperar."
+  },
+  "videos": {
+    "eyebrow": "Vídeos",
+    "heroTitle": "Aprende a crecer con *IA* y automatización",
+    "subtitle": "Vídeos prácticos con casos reales: campañas con Claude, contenido con IA, ventas automatizadas y operaciones sin Excel.",
+    "steps": [
+      "Elige un tema",
+      "Déjame tus datos una sola vez",
+      "Mira el vídeo al momento"
+    ],
+    "all": "Todos",
+    "categories": {
+      "marketing": "Marketing",
+      "sales": "Ventas",
+      "ai": "IA",
+      "operations": "Operaciones",
+      "strategy": "Estrategia"
+    },
+    "featured": "Destacado",
+    "comingSoon": "Próximamente",
+    "watch": "Ver vídeo",
+    "notify": "Avísame cuando salga",
+    "ai": "IA",
+    "unavailable": "Este vídeo no está disponible ahora mismo. Inténtalo más tarde.",
+    "gateTitle": "Mira el vídeo gratis",
+    "gateText": "Déjame tus datos y el vídeo se abre al momento. Solo te los pido una vez: después tienes acceso a toda la biblioteca.",
+    "gateSubmit": "Ver el vídeo ahora",
+    "waitTitle": "Este vídeo está en producción",
+    "waitText": "Déjame tus datos y te escribo en cuanto se publique. Además tendrás acceso a todos los vídeos de la biblioteca.",
+    "waitSubmit": "Avísame cuando salga",
+    "doneTitle": "¡Estás en la lista!",
+    "doneText": "Te escribiré a {email} en cuanto se publique.",
+    "doneAgain": "Ya estás apuntado a este vídeo. Te avisaré en cuanto se publique.",
+    "close": "Cerrar",
+    "ctaTitle": "¿Quieres aplicarlo en *tu empresa*?",
+    "ctaText": "Cuéntame qué quieres conseguir y vemos juntos cómo llevarlo a tu negocio."
   },
   "contact": {
     "title": "Hablemos de *tu proyecto*",

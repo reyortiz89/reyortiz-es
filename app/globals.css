@@ -72,6 +72,14 @@
   --animate-marquee: marquee 40s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.45s ease-out both;
+  --animate-vm-pop: vm-pop 6s ease-in-out infinite both;
+  --animate-vm-grow: vm-grow 2.8s ease-in-out infinite alternate both;
+  --animate-vm-grow-x: vm-grow-x 3.6s ease-in-out infinite alternate both;
+  --animate-vm-type: vm-type 5s ease-out infinite both;
+  --animate-vm-blink: vm-blink 1s step-end infinite;
+  --animate-vm-draw: vm-draw 4s ease-in-out infinite alternate both;
+  --animate-vm-flow: vm-flow 2.4s linear infinite;
 
   @keyframes marquee {
     from {
@@ -88,6 +96,87 @@
     }
     50% {
       transform: translateY(-8px);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* Video cover mocks */
+  @keyframes vm-pop {
+    0%,
+    6% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.97);
+    }
+    16%,
+    84% {
+      opacity: 1;
+      transform: none;
+    }
+    94%,
+    100% {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+  @keyframes vm-grow {
+    from {
+      transform: scaleY(0.3);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes vm-grow-x {
+    from {
+      transform: scaleX(0.15);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes vm-type {
+    0%,
+    8% {
+      clip-path: inset(0 100% 0 0);
+    }
+    45%,
+    100% {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes vm-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes vm-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes vm-flow {
+    from {
+      left: 0%;
+      opacity: 0;
+    }
+    15%,
+    85% {
+      opacity: 1;
+    }
+    to {
+      left: 100%;
+      opacity: 0;
     }
   }
   @keyframes pulse-dot {
@@ -183,5 +272,9 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  /* Video cover mocks: show the finished state instead of animating. */
+  [class*="animate-vm-"] {
+    animation: none !important;
   }
 }

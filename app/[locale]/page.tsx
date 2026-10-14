@@ -330,10 +330,15 @@ export default async function HomePage({ params }: Props) {
                   <Accent text={t("resourcesTitle")} />
                 </h2>
                 <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-muted">{t("resourcesText")}</p>
-                <ButtonLink href="/resources" className="mt-10">
-                  {t("resourcesCta")}
-                  <ArrowRight className="size-4" aria-hidden />
-                </ButtonLink>
+                <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <ButtonLink href={{ pathname: "/resources/assessments/[slug]", params: { slug: "automation-audit" } }}>
+                    {t("resourcesCta")}
+                    <ArrowRight className="size-4" aria-hidden />
+                  </ButtonLink>
+                  <Link href="/resources" className="text-sm font-medium underline-offset-4 hover:underline">
+                    {t("resourcesAll")}
+                  </Link>
+                </div>
               </div>
 
               <div aria-hidden className="relative">

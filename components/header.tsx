@@ -14,6 +14,7 @@ const items = [
   { href: "/services", key: "services" },
   { href: "/cases", key: "cases" },
   { href: "/resources", key: "resources" },
+  { href: "/videos", key: "videos" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const satisfies readonly { href: Pathname; key: string }[];
