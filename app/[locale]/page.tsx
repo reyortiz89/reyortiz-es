@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BookCallButton } from "@/components/book-call";
 import { CaseCard, ServiceCard } from "@/components/cards";
-import { CtaBand } from "@/components/cta-band";
+import { BookingEmbed } from "@/components/booking-embed";
 import { JsonLd } from "@/components/json-ld";
 import { Marquee } from "@/components/marquee";
 import { CountUp, Reveal } from "@/components/motion";
@@ -12,6 +12,7 @@ import { cases } from "@/content/cases";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -52,6 +53,7 @@ export default async function HomePage({ params }: Props) {
   const beforeItems = t.raw("beforeItems") as string[];
   const afterItems = t.raw("afterItems") as string[];
   const scoreAreas = t.raw("scoreAreas") as string[];
+  const bookingPoints = t.raw("bookingPoints") as string[];
   const featured = cases.filter((c) => c.featured);
   const heroCase = featured[0];
 
@@ -446,7 +448,45 @@ export default async function HomePage({ params }: Props) {
         />
       </Section>
 
-      <CtaBand title={t("ctaTitle")} text={t("ctaText")} />
+      {/* Booking */}
+      <Section className="pt-0 sm:pt-0">
+        <Container>
+          <div className="relative overflow-hidden rounded-[2rem] bg-accent p-6 text-accent-foreground sm:p-10 lg:p-14">
+            <div aria-hidden className="grain absolute inset-0" />
+            <div className="relative grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+              <Reveal>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent-foreground/70">
+                  {t("bookingEyebrow")}
+                </p>
+                <h2 className="mt-5 text-balance text-4xl font-medium leading-[1] tracking-[-0.04em] sm:text-6xl">
+                  <Accent text={t("ctaTitle")} />
+                </h2>
+                <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-accent-foreground/75">{t("ctaText")}</p>
+                <ul className="mt-8 space-y-3">
+                  {bookingPoints.map((point) => (
+                    <li key={point} className="flex items-center gap-3 text-lg">
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-accent-foreground text-accent">
+                        <Check className="size-3.5" aria-hidden />
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={{ pathname: "/contact", hash: "message" }}
+                  className="mt-10 inline-flex items-center gap-2 border-b border-accent-foreground/30 pb-1 font-medium transition-colors hover:border-accent-foreground"
+                >
+                  {t("bookingAlt")}
+                  <ArrowRight className="size-4" aria-hidden />
+                </Link>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <BookingEmbed className="border-accent-foreground/10 text-foreground" />
+              </Reveal>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </>
   );
 }

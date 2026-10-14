@@ -1,9 +1,11 @@
-import { ArrowUpRight, Calendar, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { BookingEmbed } from "@/components/booking-embed";
 import { ContactForm } from "@/components/contact-form";
+import { ContactTabs } from "@/components/contact-tabs";
 import { LinkedInIcon, WhatsAppIcon } from "@/components/icons";
 import { Reveal } from "@/components/motion";
-import { Container, Eyebrow, ExternalButton, SectionHeader } from "@/components/ui";
+import { Container, Eyebrow, SectionHeader } from "@/components/ui";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
@@ -22,7 +24,6 @@ export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contact");
-  const tc = await getTranslations("common");
   const steps = t.raw("steps") as string[];
 
   const channels = [
@@ -58,27 +59,6 @@ export default async function ContactPage({ params }: Props) {
             </div>
           </Reveal>
 
-          {site.calendlyUrl && (
-            <Reveal delay={0.1}>
-              <div className="relative mt-12 overflow-hidden rounded-3xl bg-ink p-7 text-ink-foreground">
-                <div aria-hidden className="grain absolute inset-0" />
-                <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="flex items-center gap-2 text-lg font-medium">
-                      <Calendar className="size-5 text-accent" aria-hidden />
-                      {t("bookTitle")}
-                    </p>
-                    <p className="mt-1 text-ink-foreground/60">{t("bookText")}</p>
-                  </div>
-                  <ExternalButton href={site.calendlyUrl} variant="accent" className="shrink-0">
-                    {tc("bookCall")}
-                    <ArrowUpRight className="size-4" aria-hidden />
-                  </ExternalButton>
-                </div>
-              </div>
-            </Reveal>
-          )}
-
           <Reveal delay={0.15}>
             <div className="mt-12">
               <Eyebrow>{t("direct")}</Eyebrow>
@@ -106,12 +86,19 @@ export default async function ContactPage({ params }: Props) {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="rounded-[2rem] border border-border bg-surface p-6 shadow-2xl shadow-black/5 sm:p-10 lg:sticky lg:top-28">
-            <ContactForm
-              email={site.email}
-              interests={services.map((s) => ({ value: s.slug, label: s.title[locale] }))}
-            />
-          </div>
+          <ContactTabs
+            bookLabel={t("tabs.book")}
+            messageLabel={t("tabs.message")}
+            booking={<BookingEmbed />}
+            form={
+              <div className="rounded-[2rem] border border-border bg-surface p-6 shadow-2xl shadow-black/5 sm:p-10">
+                <ContactForm
+                  email={site.email}
+                  interests={services.map((s) => ({ value: s.slug, label: s.title[locale] }))}
+                />
+              </div>
+            }
+          />
         </Reveal>
       </Container>
     </section>

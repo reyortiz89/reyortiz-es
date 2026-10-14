@@ -140,7 +140,14 @@
     "casesEyebrow": "Case studies",
     "servicesEyebrow": "Services",
     "processEyebrow": "How I work",
-    "aboutEyebrow": "About"
+    "aboutEyebrow": "About",
+    "bookingEyebrow": "Book",
+    "bookingPoints": [
+      "30 minutes, no strings attached",
+      "We review your processes and goals",
+      "You leave with clear next steps"
+    ],
+    "bookingAlt": "Prefer to write?"
   },
   "services": {
     "title": "Services",
@@ -227,7 +234,7 @@
   },
   "contact": {
     "title": "Let's talk about *your project*",
-    "subtitle": "Tell me what you need and I'll get back to you as soon as possible with next steps.",
+    "subtitle": "Book a call straight into my calendar or, if you prefer, write to me and I'll reply personally.",
     "direct": "Direct contact",
     "bookTitle": "Prefer to talk right away?",
     "bookText": "Book a 30-minute call on my calendar.",
@@ -258,11 +265,15 @@
     },
     "why": "What happens next",
     "steps": [
-      "I read your message and reply personally.",
-      "We book a 30-minute call to understand your case.",
+      "Pick a slot in the calendar or send me a message.",
+      "We talk for 30 minutes about your business, processes and goals.",
       "You get a clear proposal with scope, timeline and price."
     ],
-    "eyebrow": "Contact"
+    "eyebrow": "Contact",
+    "tabs": {
+      "book": "Book a call",
+      "message": "Send a message"
+    }
   },
   "footer": {
     "tagline": "Automation, AI and custom software for companies that want to grow without complexity.",
@@ -283,5 +294,9 @@
     "title": "Page not found",
     "text": "The page you're looking for doesn't exist or has moved.",
     "cta": "Back to home"
+  },
+  "booking": {
+    "title": "Book your call",
+    "open": "Open in a new tab"
   }
 }

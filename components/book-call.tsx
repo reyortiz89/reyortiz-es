@@ -32,10 +32,10 @@ export function BookCallButton({
       )}
     </>
   );
-  if (site.calendlyUrl) {
+  if (site.bookingUrl) {
     return (
       <a
-        href={site.calendlyUrl}
+        href={site.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         className={cn(buttonVariants[variant], className)}

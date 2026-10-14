@@ -36,7 +36,7 @@ npm run build
 
 ## Environment variables
 
-See `.env.example`. In Vercel the minimum to make the contact form work is `SMTP_PASS` (host, port and user default to Namecheap Private Email and rey@closevibe.com). `NEXT_PUBLIC_CALENDLY_URL` turns every "Book a call" button into a Calendly link; without it they go to `/contact`. `NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them.
+See `.env.example`. In Vercel the minimum to make the contact form work is `SMTP_PASS` (host, port and user default to Namecheap Private Email and rey@closevibe.com). `NEXT_PUBLIC_CALENDLY_URL` overrides the booking page that is embedded on `/contact` and the home page and opened by every "Book a call" button (default: the Closevibe agenda). `NEXT_PUBLIC_*` values are baked in at build time, so redeploy after changing them.
 
 Without SMTP configured, the contact form works in development (leads are only logged) and returns an error in production so no lead is silently lost.
 

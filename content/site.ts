@@ -12,7 +12,7 @@ export const site = {
   location: { city: "Barcelona", country: "ES" },
   linkedin: "https://www.linkedin.com/in/reynier-ortiz-tamayo/",
   github: "https://github.com/reyortiz89",
-  /** Calendly link for the "book a call" buttons; they fall back to /contact when unset. */
-  calendlyUrl: process.env.NEXT_PUBLIC_CALENDLY_URL ?? "",
+  /** Booking page (Closevibe agenda) embedded on the contact page and the home page, and opened by "Book a call" buttons. */
+  bookingUrl: process.env.NEXT_PUBLIC_CALENDLY_URL || "https://closevibe.com/r/closevibe-agenda/demo",
   yearsOfExperience: 14,
 } as const;

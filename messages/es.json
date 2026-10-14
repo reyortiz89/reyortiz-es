@@ -140,7 +140,14 @@
     "casesEyebrow": "Casos de éxito",
     "servicesEyebrow": "Servicios",
     "processEyebrow": "Cómo trabajo",
-    "aboutEyebrow": "Sobre mí"
+    "aboutEyebrow": "Sobre mí",
+    "bookingEyebrow": "Agenda",
+    "bookingPoints": [
+      "30 minutos, sin compromiso",
+      "Revisamos tus procesos y objetivos",
+      "Sales con los primeros pasos claros"
+    ],
+    "bookingAlt": "¿Prefieres escribirme?"
   },
   "services": {
     "title": "Servicios",
@@ -227,7 +234,7 @@
   },
   "contact": {
     "title": "Hablemos de *tu proyecto*",
-    "subtitle": "Cuéntame qué necesitas y te respondo lo antes posible con los siguientes pasos.",
+    "subtitle": "Reserva una llamada directamente en mi agenda o, si lo prefieres, escríbeme y te respondo personalmente.",
     "direct": "Contacto directo",
     "bookTitle": "¿Prefieres hablar directamente?",
     "bookText": "Reserva una llamada de 30 minutos en mi agenda.",
@@ -258,11 +265,15 @@
     },
     "why": "Qué pasa después",
     "steps": [
-      "Leo tu mensaje y te respondo personalmente.",
-      "Agendamos una llamada de 30 minutos para entender tu caso.",
+      "Eliges un hueco en la agenda o me escribes.",
+      "Hablamos 30 minutos sobre tu negocio, tus procesos y tus objetivos.",
       "Recibes una propuesta clara con alcance, plazos y precio."
     ],
-    "eyebrow": "Contacto"
+    "eyebrow": "Contacto",
+    "tabs": {
+      "book": "Agendar llamada",
+      "message": "Enviar mensaje"
+    }
   },
   "footer": {
     "tagline": "Automatización, IA y software a medida para empresas que quieren crecer sin complejidad.",
@@ -283,5 +294,9 @@
     "title": "Página no encontrada",
     "text": "La página que buscas no existe o ha cambiado de dirección.",
     "cta": "Volver al inicio"
+  },
+  "booking": {
+    "title": "Reserva tu llamada",
+    "open": "Abrir en otra pestaña"
   }
 }

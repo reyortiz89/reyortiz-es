@@ -44,7 +44,7 @@ export async function CtaBand({
                   ) : (
                     <BookCallButton className={dark}>{t("bookCall")}</BookCallButton>
                   )}
-                  {site.calendlyUrl && !contactLabel && (
+                  {site.bookingUrl && !contactLabel && (
                     <ButtonLink
                       href="/contact"
                       variant="ghost"
