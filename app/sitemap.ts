@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { assessments } from "@/content/assessments";
 import { cases } from "@/content/cases";
 import { services } from "@/content/services";
 import { routing } from "@/i18n/routing";
@@ -14,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { href: "/cases", priority: 0.8 },
     ...cases.map((c) => ({ href: { pathname: "/cases/[slug]" as const, params: { slug: c.slug } }, priority: 0.7 })),
     { href: "/resources", priority: 0.7 },
+    ...assessments.map((a) => ({
+      href: { pathname: "/resources/assessments/[slug]" as const, params: { slug: a.slug } },
+      priority: 0.7,
+    })),
+    { href: "/resources/roi-calculator", priority: 0.6 },
+    { href: "/videos", priority: 0.7 },
     { href: "/about", priority: 0.7 },
     { href: "/contact", priority: 0.8 },
   ];

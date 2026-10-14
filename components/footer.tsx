@@ -13,6 +13,7 @@ export async function Footer() {
     { href: "/services", label: t("nav.services") },
     { href: "/cases", label: t("nav.cases") },
     { href: "/resources", label: t("nav.resources") },
+    { href: "/videos", label: t("nav.videos") },
     { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
   ] as const;
