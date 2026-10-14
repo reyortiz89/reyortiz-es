@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "title": "Rey Ortiz · Automatización, IA y software a medida para empresas",
+    "description": "Consultor tecnológico en Barcelona. Ayudo a empresas a automatizar procesos, adoptar IA y construir software a medida. +14 años en Europa, Asia y América.",
+    "services": "Servicios de automatización, IA, software y consultoría",
+    "cases": "Casos de éxito",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "resources": "Recursos gratuitos para empresas"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "cases": "Casos",
+    "resources": "Recursos",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "cta": "Hablemos",
+    "menu": "Abrir menú",
+    "close": "Cerrar menú",
+    "skip": "Saltar al contenido"
+  },
+  "theme": {
+    "label": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "locale": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "common": {
+    "bookCall": "Agendar diagnóstico gratuito",
+    "contactMe": "Cuéntame tu proyecto",
+    "viewServices": "Ver servicios",
+    "viewCase": "Ver caso",
+    "allCases": "Ver todos los casos",
+    "learnMore": "Saber más",
+    "back": "Volver",
+    "comingSoon": "Próximamente"
+  },
+  "home": {
+    "eyebrow": "Consultoría tecnológica para empresas",
+    "title": "De procesos manuales a sistemas que escalan",
+    "subtitle": "Software a medida, automatización e IA aplicada para que tu empresa crezca sin añadir complejidad. Estrategia de negocio y ejecución técnica en un mismo equipo.",
+    "primaryCta": "Agendar diagnóstico gratuito",
+    "secondaryCta": "Ver casos de éxito",
+    "stats": {
+      "years": "años de experiencia",
+      "regions": "continentes: Europa, Asia y América",
+      "cases": "casos de éxito publicados",
+      "pilots": "en pilotos enterprise firmados"
+    },
+    "trustedBy": "Empresas con las que he trabajado",
+    "problemsTitle": "¿Te suena alguno de estos problemas?",
+    "problems": [
+      "Tu equipo pierde horas en tareas repetitivas y hojas de cálculo.",
+      "Tus herramientas no se hablan entre sí y nadie tiene la foto completa.",
+      "Los leads esperan días por una respuesta y se enfrían.",
+      "Quieres usar IA, pero no sabes por dónde empezar sin tirar el dinero.",
+      "Necesitas un producto digital o MVP y no tienes equipo técnico."
+    ],
+    "servicesTitle": "Cómo te ayudo",
+    "servicesSubtitle": "Cinco líneas de trabajo que se combinan según lo que necesite tu empresa.",
+    "casesTitle": "Resultados reales",
+    "casesSubtitle": "Proyectos de automatización, software y crecimiento con pymes y empresas en crecimiento.",
+    "processTitle": "Cómo trabajamos",
+    "process": [
+      { "title": "Diagnóstico", "text": "Una llamada de 30 minutos para entender tu negocio, tus procesos y tus objetivos." },
+      { "title": "Plan", "text": "Propuesta con prioridades, quick wins, alcance, plazos y presupuesto cerrados." },
+      { "title": "Ejecución", "text": "Construimos e implantamos por iteraciones cortas, con entregas visibles." },
+      { "title": "Adopción y mejora", "text": "Formación, documentación y medición de resultados para seguir mejorando." }
+    ],
+    "resourcesTitle": "Evalúa tu empresa gratis",
+    "resourcesText": "Pronto podrás medir tu nivel de automatización y madurez digital en pocos minutos y recibir un informe con tus prioridades.",
+    "resourcesCta": "Ver recursos",
+    "aboutTitle": "Negocio e ingeniería en la misma mesa",
+    "aboutCta": "Conoce mi trayectoria",
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      { "q": "¿Con qué tipo de empresas trabajas?", "a": "Sobre todo pymes y empresas mid-market (de 10 a 250 personas) en España, Latinoamérica y Estados Unidos, además de startups y empresas de software y fintech." },
+      { "q": "¿Trabajas solo o con equipo?", "a": "Dirijo cada proyecto personalmente y cuento con un equipo de desarrollo y automatización para la ejecución, de modo que tienes un único interlocutor y capacidad de entrega real." },
+      { "q": "¿Cuánto cuesta un proyecto?", "a": "Depende del alcance. Tras el diagnóstico gratuito recibes una propuesta cerrada. Muchos clientes empiezan con una auditoría o un sprint corto para obtener resultados rápidos con poco riesgo." },
+      { "q": "¿Trabajáis en remoto?", "a": "Sí. Estoy en Barcelona y trabajo en remoto con clientes de todo el mundo, en español e inglés." }
+    ]
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Del diagnóstico a la implantación: software, automatización, IA, crecimiento y operaciones para empresas que quieren escalar.",
+    "forWho": "Para quién es",
+    "deliverables": "Qué incluye",
+    "outcomes": "Resultados que buscamos",
+    "relatedCases": "Casos relacionados",
+    "relatedServices": "Servicios complementarios",
+    "ctaTitle": "¿Hablamos de tu caso?",
+    "ctaText": "En 30 minutos vemos si encaja y cuáles serían los primeros pasos. Sin compromiso."
+  },
+  "cases": {
+    "title": "Casos de éxito",
+    "subtitle": "Proyectos reales de automatización, transformación digital, software y crecimiento.",
+    "all": "Todos",
+    "challenge": "Reto",
+    "solution": "Solución",
+    "results": "Resultados",
+    "sector": "Sector",
+    "location": "Ubicación",
+    "duration": "Duración",
+    "servicesUsed": "Servicios",
+    "ctaTitle": "¿Quieres resultados así en tu empresa?",
+    "ctaText": "Cuéntame tu situación y te propongo un plan concreto."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "experience": "Trayectoria",
+    "education": "Formación y certificaciones",
+    "approach": "Cómo trabajo",
+    "languages": "Idiomas",
+    "photoAlt": "Rey Ortiz en un evento tecnológico"
+  },
+  "resources": {
+    "title": "Recursos gratuitos",
+    "subtitle": "Herramientas para que evalúes tu empresa, planifiques los siguientes pasos y aprendas a crecer con IA y automatización.",
+    "notice": "Estamos preparando estos recursos. Si quieres ser de los primeros en usarlos, escríbeme y te aviso.",
+    "items": [
+      { "title": "Auditoría de automatización", "text": "Descubre qué procesos automatizar primero y cuánto tiempo y dinero puedes ahorrar.", "tag": "Evaluación" },
+      { "title": "Madurez digital", "text": "Mide en qué punto está tu empresa en estrategia, procesos, datos, herramientas y personas.", "tag": "Evaluación" },
+      { "title": "Generador de roadmap con IA", "text": "Obtén un plan personalizado de 90 días con quick wins, iniciativas y KPIs.", "tag": "IA" },
+      { "title": "Calculadora de ROI", "text": "Calcula el ahorro anual y el retorno de automatizar un proceso.", "tag": "Calculadora" },
+      { "title": "Vídeos y formación", "text": "Campañas con Claude y Meta Ads, contenido con IA, automatización de ventas y más.", "tag": "Vídeo" },
+      { "title": "Plantillas", "text": "Packs de prompts, checklists de automatización y plantillas para especificar tu software.", "tag": "Descargable" }
+    ],
+    "cta": "Avísame cuando estén listos"
+  },
+  "contact": {
+    "title": "Hablemos de tu proyecto",
+    "subtitle": "Cuéntame qué necesitas y te respondo lo antes posible con los siguientes pasos.",
+    "direct": "Contacto directo",
+    "bookTitle": "¿Prefieres hablar directamente?",
+    "bookText": "Reserva un diagnóstico gratuito de 30 minutos.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email de trabajo",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "companySize": "Tamaño de la empresa",
+      "sizes": {
+        "1-10": "1 a 10 personas",
+        "11-50": "11 a 50 personas",
+        "51-250": "51 a 250 personas",
+        "250+": "Más de 250 personas"
+      },
+      "interest": "¿Qué te interesa?",
+      "interestOther": "Otro / no lo tengo claro",
+      "message": "Cuéntame tu situación",
+      "messagePlaceholder": "Qué quieres conseguir, qué herramientas usáis hoy, plazos…",
+      "consent": "Acepto la <link>política de privacidad</link> y que se usen mis datos para responder a mi solicitud.",
+      "optional": "opcional",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando…",
+      "success": "¡Gracias! He recibido tu mensaje y te responderé muy pronto.",
+      "error": "No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme a {email}.",
+      "rateLimited": "Has enviado varios mensajes seguidos. Espera unos minutos e inténtalo de nuevo.",
+      "invalid": "Revisa los campos marcados."
+    }
+  },
+  "footer": {
+    "tagline": "Automatización, IA y software a medida para empresas que quieren crecer sin complejidad.",
+    "explore": "Explorar",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados."
+  },
+  "legal": {
+    "aviso-legal": "Aviso legal",
+    "privacidad": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "updated": "Última actualización"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "La página que buscas no existe o ha cambiado de dirección.",
+    "cta": "Volver al inicio"
+  }
+}

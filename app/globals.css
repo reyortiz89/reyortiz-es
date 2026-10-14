@@ -1,116 +1,109 @@
 @import "tailwindcss";
 
-/*
-  Theme tokens (official)
-  Light
-    Background: #FFFFFF
-    Surface:    #F8FAFC
-    Text:       #020617
-    Muted:      #475569
-    Border:     #E5E7EB
-    Primary:    #2563EB
-    Secondary:  #0EA5E9
-    Success:    #16A34A
-
-  Dark
-    Background: #020617
-    Surface:    #020617
-    Text:       #E5E7EB
-    Muted:      #94A3B8
-    Border:     #1E293B
-    Primary:    #3B82F6
-    Secondary:  #38BDF8
-    Success:    #22C55E
-*/
+/* Dark mode follows the `.dark` class set by next-themes. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  color-scheme: light;
-
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --text: #020617;
-  --muted: #475569;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-  --accent-2: #0ea5e9;
-  --success: #16a34a;
-
-  --radius-lg: 14px;
-  --radius-xl: 18px;
-
-  --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
-  --shadow-md: 0 10px 30px rgba(2, 6, 23, 0.08);
-
-  --ring: rgba(37, 99, 235, 0.45);
+  --background: #ffffff;
+  --surface: #f6f8fb;
+  --surface-2: #eef2f7;
+  --foreground: #0b1220;
+  --muted: #4b5563;
+  --border: #e3e8ef;
+  --primary: #2453e6;
+  --primary-strong: #1a3fb8;
+  --primary-foreground: #ffffff;
+  --accent: #0ea5b7;
+  --ring: rgb(36 83 230 / 0.45);
+  --success: #15803d;
+  --danger: #b91c1c;
 }
 
-html[data-theme="dark"] {
-  color-scheme: dark;
-
-  --bg: #020617;
-  --surface: #020617;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
-  --border: #1e293b;
-  --accent: #3b82f6;
-  --accent-2: #38bdf8;
-  --success: #22c55e;
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
-
-  --ring: rgba(59, 130, 246, 0.5);
+.dark {
+  --background: #070b14;
+  --surface: #0d1422;
+  --surface-2: #131c2e;
+  --foreground: #e8edf5;
+  --muted: #9aa6b8;
+  --border: #1f2a3d;
+  --primary: #5b84ff;
+  --primary-strong: #7d9dff;
+  --primary-foreground: #070b14;
+  --accent: #2dd4bf;
+  --ring: rgb(91 132 255 / 0.5);
+  --success: #4ade80;
+  --danger: #f87171;
 }
 
-html {
-  scroll-behavior: smooth;
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-feature-settings: "kern" 1;
-  text-rendering: geometricPrecision;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
 }
 
-/* Typography (neutral, editorial, non-default scale) */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 650;
-  letter-spacing: -0.03em;
+@utility text-balance {
+  text-wrap: balance;
 }
 
-p {
-  line-height: 1.7;
-  color: var(--muted);
+@utility hero-glow {
+  background:
+    radial-gradient(60rem 30rem at 15% -10%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 60%),
+    radial-gradient(40rem 24rem at 95% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%);
 }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease,
-    box-shadow 160ms ease, transform 160ms ease;
+@utility grid-fade {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
 }
 
-a:hover {
-  color: var(--accent);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
-
-/* Accessible focus */
-:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 4px var(--ring);
-  border-radius: 10px;
-}
-
-/*
-  All layout, navigation, card, and form styling is implemented using Tailwind utilities.
-  Keep this file focused on design tokens and a small set of global defaults.
-*/
-
-

@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "title": "Rey Ortiz · Automation, AI and custom software for companies",
+    "description": "Technology consultant based in Barcelona. I help companies automate processes, adopt AI and build custom software. 14+ years across Europe, Asia and the Americas.",
+    "services": "Automation, AI, software and consulting services",
+    "cases": "Case studies",
+    "about": "About",
+    "contact": "Contact",
+    "resources": "Free resources for companies"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "cases": "Case studies",
+    "resources": "Resources",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Let's talk",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "skip": "Skip to content"
+  },
+  "theme": {
+    "label": "Change theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "locale": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English"
+  },
+  "common": {
+    "bookCall": "Book a free discovery call",
+    "contactMe": "Tell me about your project",
+    "viewServices": "View services",
+    "viewCase": "View case",
+    "allCases": "See all case studies",
+    "learnMore": "Learn more",
+    "back": "Back",
+    "comingSoon": "Coming soon"
+  },
+  "home": {
+    "eyebrow": "Technology consulting for companies",
+    "title": "From manual processes to systems that scale",
+    "subtitle": "Custom software, automation and applied AI so your company can grow without adding complexity. Business strategy and technical execution in one team.",
+    "primaryCta": "Book a free discovery call",
+    "secondaryCta": "See case studies",
+    "stats": {
+      "years": "years of experience",
+      "regions": "continents: Europe, Asia and the Americas",
+      "cases": "published case studies",
+      "pilots": "in signed enterprise pilots"
+    },
+    "trustedBy": "Companies I've worked with",
+    "problemsTitle": "Sound familiar?",
+    "problems": [
+      "Your team loses hours to repetitive tasks and spreadsheets.",
+      "Your tools don't talk to each other and nobody has the full picture.",
+      "Leads wait days for a reply and go cold.",
+      "You want to use AI but don't know where to start without wasting money.",
+      "You need a digital product or MVP and have no technical team."
+    ],
+    "servicesTitle": "How I help",
+    "servicesSubtitle": "Five lines of work, combined around what your company needs.",
+    "casesTitle": "Real results",
+    "casesSubtitle": "Automation, software and growth projects with SMBs and growing companies.",
+    "processTitle": "How we work",
+    "process": [
+      { "title": "Discovery", "text": "A 30-minute call to understand your business, processes and goals." },
+      { "title": "Plan", "text": "A proposal with priorities, quick wins, and a fixed scope, timeline and budget." },
+      { "title": "Execution", "text": "We build and roll out in short iterations with visible deliverables." },
+      { "title": "Adoption & improvement", "text": "Training, documentation and measured results to keep improving." }
+    ],
+    "resourcesTitle": "Assess your company for free",
+    "resourcesText": "Soon you'll be able to measure your automation level and digital maturity in a few minutes and get a report with your priorities.",
+    "resourcesCta": "See resources",
+    "aboutTitle": "Business and engineering at the same table",
+    "aboutCta": "See my background",
+    "faqTitle": "FAQ",
+    "faq": [
+      { "q": "What kind of companies do you work with?", "a": "Mostly SMBs and mid-market companies (10 to 250 people) in Spain, Latin America and the United States, plus startups, software companies and fintechs." },
+      { "q": "Do you work alone or with a team?", "a": "I lead every project personally and work with a development and automation team for execution, so you get a single point of contact and real delivery capacity." },
+      { "q": "How much does a project cost?", "a": "It depends on scope. After the free discovery call you get a fixed proposal. Many clients start with an audit or a short sprint to get quick, low-risk results." },
+      { "q": "Do you work remotely?", "a": "Yes. I'm based in Barcelona and work remotely with clients worldwide, in English and Spanish." }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "From discovery to rollout: software, automation, AI, growth and operations for companies ready to scale.",
+    "forWho": "Who it's for",
+    "deliverables": "What's included",
+    "outcomes": "Outcomes we aim for",
+    "relatedCases": "Related case studies",
+    "relatedServices": "Complementary services",
+    "ctaTitle": "Shall we talk about your case?",
+    "ctaText": "In 30 minutes we'll see if it's a fit and what the first steps would be. No commitment."
+  },
+  "cases": {
+    "title": "Case studies",
+    "subtitle": "Real automation, digital transformation, software and growth projects.",
+    "all": "All",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "results": "Results",
+    "sector": "Industry",
+    "location": "Location",
+    "duration": "Duration",
+    "servicesUsed": "Services",
+    "ctaTitle": "Want results like these?",
+    "ctaText": "Tell me about your situation and I'll propose a concrete plan."
+  },
+  "about": {
+    "title": "About me",
+    "experience": "Experience",
+    "education": "Education & certifications",
+    "approach": "How I work",
+    "languages": "Languages",
+    "photoAlt": "Rey Ortiz at a technology event"
+  },
+  "resources": {
+    "title": "Free resources",
+    "subtitle": "Tools to assess your company, plan your next steps and learn to grow with AI and automation.",
+    "notice": "We're preparing these resources. If you'd like early access, send me a message and I'll let you know.",
+    "items": [
+      { "title": "Automation audit", "text": "Find out which processes to automate first and how much time and money you can save.", "tag": "Assessment" },
+      { "title": "Digital maturity", "text": "Measure where your company stands on strategy, processes, data, tools and people.", "tag": "Assessment" },
+      { "title": "AI roadmap builder", "text": "Get a personalized 90-day plan with quick wins, initiatives and KPIs.", "tag": "AI" },
+      { "title": "ROI calculator", "text": "Calculate the yearly savings and payback of automating a process.", "tag": "Calculator" },
+      { "title": "Videos & training", "text": "Campaigns with Claude and Meta Ads, AI content, sales automation and more.", "tag": "Video" },
+      { "title": "Templates", "text": "Prompt packs, automation checklists and templates to specify your software.", "tag": "Download" }
+    ],
+    "cta": "Let me know when they're ready"
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "subtitle": "Tell me what you need and I'll get back to you as soon as possible with next steps.",
+    "direct": "Direct contact",
+    "bookTitle": "Prefer to talk right away?",
+    "bookText": "Book a free 30-minute discovery call.",
+    "form": {
+      "name": "Name",
+      "email": "Work email",
+      "phone": "Phone",
+      "company": "Company",
+      "companySize": "Company size",
+      "sizes": {
+        "1-10": "1 to 10 people",
+        "11-50": "11 to 50 people",
+        "51-250": "51 to 250 people",
+        "250+": "More than 250 people"
+      },
+      "interest": "What are you interested in?",
+      "interestOther": "Other / not sure yet",
+      "message": "Tell me about your situation",
+      "messagePlaceholder": "What you want to achieve, which tools you use today, timelines…",
+      "consent": "I accept the <link>privacy policy</link> and the use of my data to answer my request.",
+      "optional": "optional",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Thank you! I've received your message and will get back to you soon.",
+      "error": "The message couldn't be sent. Please try again or email me at {email}.",
+      "rateLimited": "You've sent several messages in a row. Please wait a few minutes and try again.",
+      "invalid": "Please check the highlighted fields."
+    }
+  },
+  "footer": {
+    "tagline": "Automation, AI and custom software for companies that want to grow without complexity.",
+    "explore": "Explore",
+    "legal": "Legal",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "legal": {
+    "aviso-legal": "Legal notice",
+    "privacidad": "Privacy policy",
+    "cookies": "Cookie policy",
+    "updated": "Last updated"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to home"
+  }
+}
