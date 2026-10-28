@@ -11,8 +11,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell
-      title="Contact"
-      description="For projects, consulting, or collaboration, share a short brief and Ill reply with next steps."
+      eyebrow="Contacto"
+      title="Hablemos de tu proyecto"
+      description="Cuéntame en qué punto estás y qué quieres conseguir. Te respondo con los siguientes pasos en menos de 48 horas."
     >
       <ContactForm />
     </PageShell>

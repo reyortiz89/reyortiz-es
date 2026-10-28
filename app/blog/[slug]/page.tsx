@@ -78,14 +78,21 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
   };
 
   return (
-    <PageShell title={post.title} description={post.description}>
+    <PageShell eyebrow={post.category} title={post.title} description={post.description}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <article className="max-w-3xl">
-        <p className="text-xs uppercase tracking-wide text-(--muted)">
-          {post.category} · <time dateTime={post.date}>{post.date}</time> · {profile.identity.name}
+        <p className="flex flex-wrap items-center gap-3 text-sm text-(--muted)">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-(--text) font-display text-xs font-bold text-(--bg)">
+            RO
+          </span>
+          <span className="font-medium text-(--text)">{profile.identity.name}</span>
+          <span aria-hidden>·</span>
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}
+          </time>
         </p>
-        <div className="post-body mt-8 text-base leading-8 text-(--text)">
+        <div className="post-body mt-10 text-[17px] leading-8 text-(--text)">
           <MDXRemote source={post.content} />
         </div>
       </article>
@@ -93,10 +100,13 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
       {related.length > 0 ? (
         <aside className="mt-16 max-w-3xl border-t border-(--border) pt-8">
           <h2 className="text-lg font-semibold text-(--text)">Sigue leyendo</h2>
-          <ul className="mt-4 grid gap-3">
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {related.map((item) => (
               <li key={item.slug}>
-                <Link href={`/blog/${item.slug}`} className="text-(--accent) hover:underline">
+                <Link
+                  href={`/blog/${item.slug}`}
+                  className="block h-full rounded-2xl border border-(--border) bg-(--surface) p-5 font-medium text-(--text) transition hover:-translate-y-px hover:text-(--accent)"
+                >
                   {item.title}
                 </Link>
               </li>

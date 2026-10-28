@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, GraduationCap, Languages, MapPin } from "lucide-react";
 import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
+import { Marquee } from "@/components/ui/Marquee";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
@@ -9,70 +14,92 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const principles = [
+    { title: "Claridad antes que complejidad", detail: "Requisitos explícitos y alcance acotado desde el primer día." },
+    { title: "Confianza con hechos", detail: "Demos realistas y planes de ejecución que se pueden cumplir." },
+    { title: "Alinear para ir más rápido", detail: "Documentación y comunicación que reducen ciclos y riesgo de entrega." },
+  ];
+
   return (
     <PageShell
-      title="About"
-      description="Professional background, working style, and the type of problems I help solve."
+      eyebrow="Sobre mí"
+      title={`Hola, soy ${profile.identity.name.split(" ")[0]}`}
+      description={profile.identity.about}
     >
-      <div className="grid gap-12 md:grid-cols-12">
-        <section className="md:col-span-7" aria-labelledby="about-narrative">
-          <h2 id="about-narrative" className="text-xl font-semibold tracking-tight text-(--text)">
-            Overview
-          </h2>
-          <div className="mt-4 space-y-4">
-            <p className="text-base leading-7 text-(--muted)">{profile.identity.about}</p>
-            <p className="text-base leading-7 text-(--muted)">{profile.identity.summary}</p>
-          </div>
+      <div className="grid gap-12 lg:grid-cols-12">
+        <section className="reveal lg:col-span-7" aria-labelledby="about-story">
+          <SectionHeading eyebrow="Trayectoria" title="Negocio, producto e ingeniería" />
+          <p id="about-story" className="mt-6 text-lg leading-8">
+            {profile.identity.summary}
+          </p>
 
-          <div className="mt-8 rounded-2xl border border-(--border) bg-(--surface) p-6 shadow-sm">
-            <h3 className="text-sm font-semibold tracking-tight text-(--text)">Working principles</h3>
-            <ul className="mt-4 space-y-2 text-sm text-(--muted)">
-              <li>Clarity over complexitymake requirements explicit.</li>
-              <li>Trust is built through accurate demos and realistic execution plans.</li>
-              <li>Documentation and alignment reduce cycle time and delivery risk.</li>
-            </ul>
-          </div>
+          <h2 className="mt-14 text-2xl font-semibold tracking-tight text-(--text)">Cómo trabajo</h2>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-3">
+            {principles.map((p) => (
+              <li key={p.title}>
+                <TiltCard>
+                  <div className="p-5">
+                    <h3 className="text-base font-semibold text-(--text)">{p.title}</h3>
+                    <p className="mt-2 text-sm">{p.detail}</p>
+                  </div>
+                </TiltCard>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        <aside className="md:col-span-5" aria-labelledby="about-facts">
-          <h2 id="about-facts" className="text-xl font-semibold tracking-tight text-(--text)">
-            Quick facts
-          </h2>
-          <dl className="mt-4 space-y-4 rounded-2xl border border-(--border) bg-(--surface) p-6 text-sm shadow-sm">
-            <div>
-              <dt className="font-medium text-(--text)">Location</dt>
-              <dd className="mt-1 text-(--muted)">{profile.identity.location}</dd>
+        <aside className="reveal grid content-start gap-4 lg:col-span-5" aria-label="Datos rápidos">
+          <dl className="grid gap-5 rounded-2xl border border-(--border) bg-(--surface) p-6">
+            <div className="flex gap-3">
+              <MapPin size={18} className="mt-0.5 text-(--accent)" />
+              <div>
+                <dt className="text-sm font-medium text-(--text)">Ubicación</dt>
+                <dd className="text-sm text-(--muted)">{profile.identity.location}</dd>
+              </div>
             </div>
-            <div>
-              <dt className="font-medium text-(--text)">Languages</dt>
-              <dd className="mt-1 text-(--muted)">{profile.identity.languages.join(", ")}</dd>
+            <div className="flex gap-3">
+              <Languages size={18} className="mt-0.5 text-(--accent)" />
+              <div>
+                <dt className="text-sm font-medium text-(--text)">Idiomas</dt>
+                <dd className="text-sm text-(--muted)">{profile.identity.languages.join(", ")}</dd>
+              </div>
             </div>
-            <div>
-              <dt className="font-medium text-(--text)">Core work</dt>
-              <dd className="mt-1 text-(--muted)">
-                Presales leadership, solution architecture, and delivery enablement.
-              </dd>
-            </div>
+            {profile.education.map((edu) => (
+              <div key={edu.id} className="flex gap-3">
+                <GraduationCap size={18} className="mt-0.5 text-(--accent)" />
+                <div>
+                  <dt className="text-sm font-medium text-(--text)">Formación</dt>
+                  <dd className="text-sm text-(--muted)">
+                    {edu.degree} · {edu.institution} ({edu.year})
+                  </dd>
+                </div>
+              </div>
+            ))}
           </dl>
 
-          <section className="mt-10" aria-labelledby="about-education">
-            <h3 id="about-education" className="text-sm font-semibold tracking-tight text-(--text)">
-              Education
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {profile.education.map((edu) => (
-                <li
-                  key={edu.id}
-                  className="rounded-2xl border border-(--border) bg-(--surface) p-5 text-sm shadow-sm"
-                >
-                  <p className="font-medium text-(--text)">{edu.degree}</p>
-                  <p className="mt-1 text-(--muted)">{edu.institution}</p>
-                  <p className="mt-1 text-(--muted)">{edu.year}</p>
+          <div className="rounded-2xl border border-(--border) bg-(--surface) p-6">
+            <p className="font-mono text-xs uppercase tracking-wider text-(--muted)">Especialidades</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {profile.identity.expertise.map((e) => (
+                <li key={e} className="rounded-full border border-(--border) bg-(--bg) px-3 py-1 text-sm text-(--text)">
+                  {e}
                 </li>
               ))}
             </ul>
-          </section>
+          </div>
+
+          <Link
+            href="/work"
+            className="group inline-flex items-center justify-between rounded-2xl border border-(--border) bg-(--surface) p-6 text-(--text)"
+          >
+            <span className="font-medium">Ver toda mi experiencia</span>
+            <ArrowRight size={18} className="text-(--accent) transition-transform group-hover:translate-x-1" />
+          </Link>
         </aside>
+      </div>
+
+      <div className="mt-20">
+        <Marquee items={profile.skills.flatMap((g) => g.items)} />
       </div>
     </PageShell>
   );
