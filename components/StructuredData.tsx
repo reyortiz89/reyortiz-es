@@ -1,11 +1,16 @@
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 /**
- * Site-wide JSON-LD: who Reynier is (Person), the consulting service and the website.
+ * Site-wide JSON-LD: who Rey is (Person), the consulting services and the website.
  */
 export function StructuredData() {
   const personId = `${SITE_URL}/#person`;
+  const address = {
+    "@type": "PostalAddress",
+    addressLocality: seo.city,
+    addressCountry: seo.country,
+  };
 
   const data = {
     "@context": "https://schema.org",
@@ -13,40 +18,48 @@ export function StructuredData() {
       {
         "@type": "Person",
         "@id": personId,
-        name: profile.identity.name,
-        jobTitle: profile.identity.title,
-        description: profile.identity.summary,
-        knowsAbout: profile.identity.expertise,
+        name: seo.fullName,
+        alternateName: seo.name,
+        jobTitle: seo.jobTitle,
+        description: seo.description,
         url: SITE_URL,
-        email: `mailto:${profile.identity.email}`,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Barcelona",
-          addressCountry: "ES",
-        },
-        knowsLanguage: ["es", "en"],
-        sameAs: Object.values(profile.social),
+        email: `mailto:${seo.email}`,
+        telephone: seo.telephone,
+        address,
+        worksFor: seo.worksFor.map((name) => ({ "@type": "Organization", name })),
+        alumniOf: seo.alumniOf.map((name) => ({ "@type": "EducationalOrganization", name })),
+        knowsAbout: seo.services.map((service) => service.name),
+        sameAs: seo.sameAs,
       },
       {
         "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#service`,
-        name: `${profile.identity.name} · ${profile.identity.title}`,
-        description: profile.identity.summary,
+        name: `${seo.name} | ${seo.jobTitle}`,
+        description: seo.tagline,
         url: SITE_URL,
+        email: seo.email,
+        telephone: seo.telephone,
         founder: { "@id": personId },
-        areaServed: ["ES", "EU"],
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Barcelona",
-          addressCountry: "ES",
+        address,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Services",
+          itemListElement: seo.services.map((service) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: service.name,
+              description: service.description,
+              url: `${SITE_URL}/services/${service.slug}`,
+            },
+          })),
         },
       },
       {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
-        name: profile.identity.name,
+        name: seo.name,
         url: SITE_URL,
-        inLanguage: "es",
         publisher: { "@id": personId },
       },
     ],

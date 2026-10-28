@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 
-export const alt = `${profile.identity.name} | ${profile.identity.title}`;
+export const alt = `${seo.name} - ${seo.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -22,8 +22,8 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ fontSize: 72, fontWeight: 700 }}>{profile.identity.name}</div>
-        <div style={{ fontSize: 40, marginTop: 24, color: "#9fb4d8" }}>{profile.identity.title}</div>
+        <div style={{ fontSize: 72, fontWeight: 700 }}>{seo.name}</div>
+        <div style={{ fontSize: 40, marginTop: 24, color: "#9fb4d8" }}>{seo.tagline}</div>
         <div style={{ fontSize: 28, marginTop: 48, color: "#6f86ad" }}>reyortiz.es</div>
       </div>
     ),

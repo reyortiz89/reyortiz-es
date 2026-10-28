@@ -1,4 +1,4 @@
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 import { getAllPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/site";
 
@@ -26,7 +26,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>${escape(`Blog de ${profile.identity.name}`)}</title>
+    <title>${escape(`Blog de ${seo.fullName}`)}</title>
     <link>${SITE_URL}/blog</link>
     <description>Inteligencia artificial y proyectos para empresas.</description>
     <language>es</language>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider, ThemeScript } from "@/components";
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import { StructuredData } from "@/components/StructuredData";
 import { Footer } from "@/components/site/Footer";
@@ -10,31 +10,23 @@ import { Sidebar } from "@/components/site/Sidebar";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${profile.identity.name} | ${profile.identity.title}`,
-    template: `%s | ${profile.identity.name}`,
+    default: `${seo.name} - ${seo.tagline}`,
+    template: `%s | ${seo.name}`,
   },
-  description: profile.identity.seoDescription,
-  keywords: [
-    "consultor de inteligencia artificial",
-    "consultor IA Barcelona",
-    "project manager IA",
-    "gestión de proyectos de IA",
-    "implementar IA en empresas",
-    "automatización con IA",
-    "agentes de IA para empresas",
-    "IA en fintech",
-  ],
+  description: seo.description,
+  keywords: seo.keywords,
+  authors: [{ name: seo.fullName, url: SITE_URL }],
   openGraph: {
-    title: `${profile.identity.name} | ${profile.identity.title}`,
-    description: profile.identity.seoDescription,
+    title: `${seo.name} - ${seo.tagline}`,
+    description: seo.description,
     type: "website",
-    siteName: profile.identity.name,
-    locale: "es_ES",
+    siteName: seo.name,
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.identity.name} | ${profile.identity.title}`,
-    description: profile.identity.seoDescription,
+    title: `${seo.name} - ${seo.tagline}`,
+    description: seo.description,
   },
 };
 
@@ -44,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

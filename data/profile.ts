@@ -6,27 +6,15 @@
 export const profile = {
   identity: {
     name: "Reynier Ortiz",
-    title: "Consultor de IA y Project Manager",
-    location: "Barcelona, España",
+    title: "Solutions Consultant & Technical Presales",
+    location: "Barcelona, Spain",
     email: "rey.ortiztamayo@gmail.com",
     phone: "+34 (632) 503-325",
-    languages: ["Español", "Inglés"],
+    languages: ["Spanish", "English"],
     summary:
-      "Más de 12 años de experiencia internacional en Europa, Asia y América. Ayudo a empresas a llevar la inteligencia artificial de la idea a producción: estrategia, gestión de proyectos, automatización y arquitectura de soluciones, con foco en resultados de negocio en fintech, banca, SaaS B2B y gran empresa.",
-    // Short version (~155 characters) for meta descriptions and social previews.
-    seoDescription:
-      "Consultor de IA y Project Manager en Barcelona. Ayudo a empresas a llevar la inteligencia artificial de la idea a producción con proyectos medibles.",
+      "12+ years of international experience across Europe, Asia, and the Americas. Specialized in aligning product capabilities with client needs through technical presales, RFP leadership, and solution architecture. Expert in accelerating deal cycles and delivering scalable revenue-driving solutions for Finance, Enterprise, and B2B SaaS organizations.",
     about:
-      "Uno negocio, producto e ingeniería. He liderado preventa, operaciones y proyectos tecnológicos en distintos mercados y culturas, y hoy me centro en que la IA genere valor real: casos de uso bien elegidos, proyectos con alcance claro y equipos que los adoptan.",
-    expertise: [
-      "Inteligencia artificial aplicada a empresas",
-      "Gestión de proyectos",
-      "Automatización de procesos",
-      "Agentes de IA",
-      "Arquitectura de soluciones",
-      "Preventa técnica",
-      "Fintech y pagos",
-    ],
+      "Passionate about crafting technical solutions that solve real business problems. I bridge sales, product, and engineering—working across cultures and markets to deliver compelling demos, strategic proposals, and solutions that build trust and drive results.",
   },
 
   experience: [
