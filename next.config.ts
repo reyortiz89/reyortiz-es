@@ -10,6 +10,30 @@ const nextConfig: NextConfig = {
     "/blog/rss.xml": blogContent,
     "/sitemap.xml": blogContent,
   },
+  // Old URLs (the static site and the first Next.js pages) now live on the home page and /services/[slug].
+  async redirects() {
+    const services = ["automation-ai", "digital-transformation", "software-integration", "marketing-growth"];
+    return [
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/work", destination: "/#portfolio", permanent: true },
+      { source: "/contact", destination: "/#contact", permanent: true },
+      { source: "/services", destination: "/#services", permanent: true },
+      { source: "/template", destination: "/", permanent: true },
+      { source: "/template/index.html", destination: "/", permanent: true },
+      { source: "/template/portfolio-details-case-studies.html", destination: "/#portfolio", permanent: true },
+      ...services.map((slug) => ({
+        source: `/template/services-${slug}.html`,
+        destination: `/services/${slug}`,
+        permanent: true,
+      })),
+      ...services.map((slug) => ({
+        source: `/services-${slug}.html`,
+        destination: `/services/${slug}`,
+        permanent: true,
+      })),
+      { source: "/index.html", destination: "/", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

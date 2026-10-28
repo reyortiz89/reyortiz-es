@@ -34,6 +34,7 @@ export async function POST(req: Request) {
     const name = typeof body.name === "string" ? body.name.trim() : "";
     const email = typeof body.email === "string" ? body.email.trim() : "";
     const message = typeof body.message === "string" ? body.message.trim() : "";
+    const topic = typeof body.subject === "string" ? body.subject.trim().slice(0, 200) : "";
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -67,13 +68,14 @@ export async function POST(req: Request) {
         address: from,
       },
       to,
-      subject: `New message from ${name}`,
+      subject: topic ? `${topic} (from ${name})` : `New message from ${name}`,
       replyTo: email,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}\n`,
+      text: `Name: ${name}\nEmail: ${email}\n${topic ? `Subject: ${topic}\n` : ""}\n${message}\n`,
       html: `
         <div style="font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; line-height: 1.5">
           <p><strong>Name:</strong> ${escapeHtml(name)}</p>
           <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+          ${topic ? `<p><strong>Subject:</strong> ${escapeHtml(topic)}</p>` : ""}
           <hr />
           <p style="white-space: pre-wrap">${escapeHtml(message)}</p>
         </div>
