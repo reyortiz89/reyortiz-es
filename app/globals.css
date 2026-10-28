@@ -362,3 +362,55 @@
   font-family: var(--font-mono);
   font-size: 0.9em;
 }
+
+/* Cursor-following glow for cards marked data-spotlight (position fed by SpotlightTracker). */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in oklab, var(--accent) 22%, transparent),
+    transparent 60%
+  );
+}
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    260px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    var(--accent-ink),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.spotlight:hover::before,
+.spotlight:hover::after {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight::before,
+  .spotlight::after {
+    transition: none;
+  }
+}

@@ -8,7 +8,8 @@ export function PostCard({ post }: { post: PostMeta }) {
     <Link
       href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }}
       locale={blogLocale}
-      className="group flex h-full flex-col rounded-[2rem] border border-border bg-surface p-7 transition-colors hover:border-foreground/25"
+      data-spotlight
+      className="spotlight group flex h-full flex-col rounded-[2rem] border border-border bg-surface p-7 transition-colors hover:border-foreground/25"
     >
       <p className="flex items-center justify-between gap-4 text-xs uppercase tracking-[0.14em] text-muted">
         <span>{post.category}</span>

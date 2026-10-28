@@ -9,6 +9,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ScrollProgress, SpotlightTracker } from "@/components/effects";
 import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
 import { experience, profile } from "@/content/profile";
@@ -98,6 +99,8 @@ export default async function LocaleLayout({
       <body className="min-h-dvh">
         <NextIntlClientProvider>
           <Providers>
+            <ScrollProgress />
+            <SpotlightTracker />
             <Header />
             <main id="main">{children}</main>
             <Footer />
