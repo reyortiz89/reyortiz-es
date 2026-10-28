@@ -30,9 +30,9 @@ function getPreferredTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize with undefined to read from DOM after hydration
+  // Initialize with undefined to read from DOM after hydration. Server and first client
+  // render both use "light", so markup matches; the real theme is applied by ThemeScript.
   const [theme, setThemeState] = useState<Theme | undefined>(undefined);
-  const [mounted, setMounted] = useState(false);
 
   const applyThemeToDom = useCallback((next: Theme) => {
     document.documentElement.dataset.theme = next;
@@ -62,7 +62,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const currentTheme = (document.documentElement.dataset.theme as Theme) || getPreferredTheme();
     setThemeState(currentTheme);
-    setMounted(true);
   }, []);
 
   const value = useMemo(() => ({ 
@@ -70,11 +69,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme, 
     toggleTheme 
   }), [theme, setTheme, toggleTheme]);
-
-  // Don't render children until theme is initialized to prevent hydration mismatch
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <ThemeContext.Provider value={value}>

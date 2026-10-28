@@ -1,0 +1,101 @@
+---
+title: "Cómo implementar IA en una empresa: hoja de ruta en 90 días"
+description: "Guía práctica para implementar inteligencia artificial en una empresa en 90 días: elegir el caso de uso, preparar los datos, lanzar un piloto y medir el retorno."
+date: 2026-11-04
+category: "Proyectos de IA"
+type: guia
+keyword: "implementar IA en empresa"
+tags: ["IA", "estrategia", "gestión de proyectos", "hoja de ruta"]
+draft: false
+---
+
+Implementar IA en una empresa no empieza por elegir un modelo, sino por elegir un problema. En 90 días se puede pasar de la idea a un caso de uso en producción si se sigue un orden: **diagnóstico (semanas 1–3), piloto (semanas 4–9) y despliegue con métricas (semanas 10–13)**. Esta guía resume ese proceso tal como lo planteo en proyectos reales.
+
+## Por qué 90 días
+
+Tres meses es suficiente para demostrar valor y lo bastante corto para que el proyecto no pierda patrocinio. Los proyectos de IA que se alargan sin resultados visibles suelen morir por falta de apoyo interno, no por problemas técnicos. Un horizonte de 90 días obliga a acotar el alcance y a medir desde el primer día.
+
+## Fase 1: diagnóstico (semanas 1–3)
+
+El objetivo de esta fase es salir con **un caso de uso elegido, un responsable de negocio y una métrica de éxito acordada**.
+
+### 1. Inventario de oportunidades
+
+Reúne a las áreas con más trabajo repetitivo o basado en documentos: atención al cliente, operaciones, finanzas, ventas, cumplimiento normativo. Para cada proceso, anota:
+
+- Cuántas horas al mes consume.
+- Cuántos errores o retrasos genera.
+- Qué datos o documentos usa y dónde están.
+
+### 2. Priorización por impacto y viabilidad
+
+Puntúa cada oportunidad de 1 a 5 en dos ejes:
+
+- **Impacto**: ahorro de horas, ingresos, reducción de riesgo o mejora de la experiencia del cliente.
+- **Viabilidad**: disponibilidad de datos, complejidad de integración, riesgo regulatorio y apoyo del área.
+
+El primer proyecto debe estar arriba a la derecha: impacto alto y viabilidad alta. Deja los casos espectaculares pero difíciles para la segunda ola.
+
+### 3. Business case de una página
+
+Antes de escribir código, documenta en una página: el problema, la situación actual con números, el resultado esperado, el coste estimado y quién decide. Si no se puede escribir en una página, el caso de uso no está maduro.
+
+## Fase 2: piloto (semanas 4–9)
+
+El piloto demuestra que la solución funciona **con datos reales y usuarios reales**, a pequeña escala.
+
+### 4. Preparar los datos
+
+En la mayoría de proyectos, el trabajo con los datos ocupa más tiempo que el modelo. Revisa calidad, permisos de acceso y protección de datos personales (RGPD) antes de empezar. Si hay datos sensibles, define desde el inicio dónde se procesan y quién puede verlos.
+
+### 5. Elegir el enfoque técnico más simple que funcione
+
+Hoy muchas soluciones se construyen sobre modelos de lenguaje existentes, sin entrenar modelos propios. El orden habitual de menor a mayor complejidad es:
+
+1. Un asistente con instrucciones y ejemplos bien diseñados.
+2. Un asistente conectado a la documentación de la empresa (RAG).
+3. Un agente que, además, ejecuta acciones en otros sistemas.
+
+Empieza por el nivel más bajo que resuelva el problema.
+
+### 6. Piloto con un grupo reducido
+
+Selecciona entre 5 y 20 usuarios del área. Mide desde el primer día la métrica acordada y recoge feedback cualitativo cada semana. Mantén siempre a una persona revisando los resultados en los casos de mayor riesgo.
+
+## Fase 3: despliegue y medición (semanas 10–13)
+
+### 7. Decidir con datos
+
+Al final del piloto compara la métrica con la situación inicial. Las opciones son tres: escalar, ajustar y repetir el piloto, o parar. Parar a tiempo también es un buen resultado: ahorra presupuesto para el siguiente caso de uso.
+
+### 8. Escalar con gobierno
+
+Si se escala, define quién mantiene la solución, cómo se monitoriza la calidad de las respuestas, qué se hace ante un error y cómo se forma a los usuarios. La adopción es tan importante como la tecnología: una herramienta que nadie usa no tiene retorno.
+
+## Checklist de los 90 días
+
+- Caso de uso priorizado por impacto y viabilidad
+- Business case de una página aprobado
+- Responsable de negocio y métrica de éxito definidos
+- Datos revisados y requisitos de RGPD resueltos
+- Piloto con usuarios reales y medición semanal
+- Decisión de escalar, ajustar o parar documentada
+- Plan de mantenimiento, monitorización y formación
+
+## Preguntas frecuentes
+
+### ¿Cuánto cuesta implementar IA en una empresa?
+
+Depende del caso de uso. Un piloto sobre modelos existentes suele costar mucho menos que un desarrollo a medida, porque no requiere entrenar modelos. Lo importante es comparar el coste con el ahorro o ingreso que se espera y fijar un presupuesto máximo para el piloto.
+
+### ¿Necesito un equipo de científicos de datos?
+
+Para un primer proyecto, no necesariamente. Hace falta alguien que entienda el proceso de negocio, alguien que gestione el proyecto y apoyo técnico para integrar la solución con los sistemas de la empresa.
+
+### ¿Qué pasa si el piloto no funciona?
+
+Es información valiosa. Documenta por qué no funcionó (datos, adopción, alcance) y pasa al siguiente caso de la lista priorizada.
+
+---
+
+¿Quieres aplicar esta hoja de ruta en tu empresa? [Cuéntame tu caso](/contact) y vemos por dónde empezar.
