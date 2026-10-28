@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { PageShell } from "@/components/PageShell";
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/site";
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
       modifiedTime: post.updated ?? post.date,
-      authors: [profile.identity.name],
+      authors: [seo.fullName],
       tags: post.tags,
       ...(post.image ? { images: [post.image] } : {}),
     },
@@ -83,7 +83,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
 
       <article className="max-w-3xl">
         <p className="text-xs uppercase tracking-wide text-(--muted)">
-          {post.category} · <time dateTime={post.date}>{post.date}</time> · {profile.identity.name}
+          {post.category} · <time dateTime={post.date}>{post.date}</time> · {seo.fullName}
         </p>
         <div className="post-body mt-8 text-base leading-8 text-(--text)">
           <MDXRemote source={post.content} />
