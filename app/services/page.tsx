@@ -4,8 +4,8 @@ import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: `Services offered by ${profile.identity.name}.`,
+  title: "Servicios",
+  description: "Consultoría de IA, gestión de proyectos, automatización y transformación digital para empresas. Proyectos con alcance claro y resultados medibles.",
   alternates: { canonical: "/services" },
 };
 

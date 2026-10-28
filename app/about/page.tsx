@@ -3,8 +3,8 @@ import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `Professional background and experience for ${profile.identity.name}.`,
+  title: "Sobre mí",
+  description: "Reynier Ortiz, consultor de IA y Project Manager en Barcelona: trayectoria internacional en preventa, operaciones y proyectos tecnológicos.",
   alternates: { canonical: "/about" },
 };
 

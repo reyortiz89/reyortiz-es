@@ -16,6 +16,7 @@ export function StructuredData() {
         name: profile.identity.name,
         jobTitle: profile.identity.title,
         description: profile.identity.summary,
+        knowsAbout: profile.identity.expertise,
         url: SITE_URL,
         email: `mailto:${profile.identity.email}`,
         address: {
@@ -29,7 +30,7 @@ export function StructuredData() {
       {
         "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#service`,
-        name: profile.identity.name,
+        name: `${profile.identity.name} · ${profile.identity.title}`,
         description: profile.identity.summary,
         url: SITE_URL,
         founder: { "@id": personId },
@@ -45,6 +46,7 @@ export function StructuredData() {
         "@id": `${SITE_URL}/#website`,
         name: profile.identity.name,
         url: SITE_URL,
+        inLanguage: "es",
         publisher: { "@id": personId },
       },
     ],

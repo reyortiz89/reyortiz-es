@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Contact ${profile.identity.name}.`,
+  title: "Contacto",
+  description: "Cuéntame tu proyecto de IA, automatización o transformación digital y te respondo con los siguientes pasos.",
   alternates: { canonical: "/contact" },
 };
 
