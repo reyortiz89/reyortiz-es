@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { profile } from "@/data/profile";
+import { seo } from "@/lib/seo";
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
 import { Hero } from "@/components/site/Hero";
@@ -11,7 +11,7 @@ import { Stats } from "@/components/site/Stats";
 import { Testimonials } from "@/components/site/Testimonials";
 
 export const metadata: Metadata = {
-  title: { absolute: `${profile.identity.name} | ${profile.identity.title}` },
+  title: { absolute: `${seo.name} - ${seo.tagline}` },
   alternates: { canonical: "/" },
 };
 
