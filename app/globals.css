@@ -278,3 +278,87 @@
     animation: none !important;
   }
 }
+
+/* Long-form blog posts rendered from MDX. */
+.post-body {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+.post-body > * + * {
+  margin-top: 1.25em;
+}
+.post-body h2 {
+  margin-top: 2.5em;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.post-body h3 {
+  margin-top: 2em;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.post-body p,
+.post-body li {
+  color: color-mix(in oklab, var(--foreground) 82%, var(--muted));
+}
+.post-body a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.post-body a:hover {
+  color: var(--accent-ink);
+}
+.post-body strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.post-body ul,
+.post-body ol {
+  padding-left: 1.25em;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body li + li {
+  margin-top: 0.5em;
+}
+.post-body li::marker {
+  color: var(--accent-ink);
+}
+.post-body hr {
+  margin: 3em 0;
+  border-color: var(--border);
+}
+.post-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25em;
+  font-style: italic;
+}
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+.post-body th,
+.post-body td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.6em 0.75em;
+  text-align: left;
+}
+.post-body code {
+  border-radius: 0.375rem;
+  background: var(--surface-2);
+  padding: 0.1em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
