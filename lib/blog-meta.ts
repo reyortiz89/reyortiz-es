@@ -51,3 +51,8 @@ export function blogMetadata({
     twitter: { card: "summary_large_image", title, description },
   };
 }
+
+/** Cover image of a post: its own `image` when set, otherwise the branded cover generated for it. */
+export function postCover(post: { slug: string; image?: string }) {
+  return post.image ?? `/${blogLocale}/blog/${post.slug}/opengraph-image`;
+}

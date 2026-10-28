@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaBand } from "@/components/cta-band";
 import { JsonLd } from "@/components/json-ld";
+import { mdxComponents } from "@/components/mdx";
 import { Reveal } from "@/components/motion";
 import { PostCard } from "@/components/post-card";
 import { BackLink, Container, PageHero, Section } from "@/components/ui";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
 import { formatPostDate, getAllPosts, getPost, getRelatedPosts, readingMinutes } from "@/lib/blog";
-import { blogLocale, blogMetadata, blogUrl } from "@/lib/blog-meta";
+import { blogLocale, blogMetadata, blogUrl, postCover } from "@/lib/blog-meta";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -69,7 +70,7 @@ export default async function PostPage({ params }: Props) {
               author: { "@id": `${site.url}/#person` },
               publisher: { "@id": `${site.url}/#person` },
               isPartOf: { "@id": `${blogUrl()}#blog` },
-              ...(post.image ? { image: new URL(post.image, site.url).toString() } : {}),
+              image: new URL(postCover(post), site.url).toString(),
             },
             {
               "@type": "BreadcrumbList",
@@ -105,8 +106,16 @@ export default async function PostPage({ params }: Props) {
       </PageHero>
       <Section className="pt-0 sm:pt-0">
         <Container>
+          {/* eslint-disable-next-line @next/next/no-img-element -- generated cover, already sized */}
+          <img
+            src={postCover(post)}
+            alt={post.title}
+            width={1200}
+            height={630}
+            className="mx-auto mb-14 aspect-[1200/630] w-full max-w-4xl rounded-[2rem] border border-border object-cover"
+          />
           <article className="post-body mx-auto max-w-3xl">
-            <MDXRemote source={post.content} />
+            <MDXRemote source={post.content} components={mdxComponents} />
           </article>
 
           {related.length > 0 && (
