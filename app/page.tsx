@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import { profile } from "@/data/profile";
+import { About } from "@/components/site/About";
+import { Contact } from "@/components/site/Contact";
+import { Hero } from "@/components/site/Hero";
+import { Portfolio } from "@/components/site/Portfolio";
+import { Resume } from "@/components/site/Resume";
+import { Services } from "@/components/site/Services";
+import { Skills } from "@/components/site/Skills";
+import { Stats } from "@/components/site/Stats";
+import { Testimonials } from "@/components/site/Testimonials";
 
 export const metadata: Metadata = {
   title: { absolute: `${profile.identity.name} | ${profile.identity.title}` },
@@ -8,12 +17,16 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
-      <iframe
-        title="Template home"
-        src="/template/index.html"
-        style={{ width: "100%", height: "100%", border: 0 }}
-      />
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Stats />
+      <Skills />
+      <Resume />
+      <Portfolio />
+      <Services />
+      <Testimonials />
+      <Contact />
+    </>
   );
 }

@@ -4,6 +4,8 @@ import { ThemeProvider, ThemeScript } from "@/components";
 import { profile } from "@/data/profile";
 import { SITE_URL } from "@/lib/site";
 import { StructuredData } from "@/components/StructuredData";
+import { Footer } from "@/components/site/Footer";
+import { Sidebar } from "@/components/site/Sidebar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,7 +53,11 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <main>{children}</main>
+          <Sidebar />
+          <div className="xl:pl-[300px]">
+            <main id="main">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
