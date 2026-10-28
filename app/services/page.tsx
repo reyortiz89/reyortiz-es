@@ -4,8 +4,9 @@ import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: `Services | ${profile.identity.name}`,
+  title: "Services",
   description: `Services offered by ${profile.identity.name}.`,
+  alternates: { canonical: "/services" },
 };
 
 const REQUIRED_SERVICE_ORDER = [

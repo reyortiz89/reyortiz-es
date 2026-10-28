@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: { absolute: `${profile.identity.name} | ${profile.identity.title}` },
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

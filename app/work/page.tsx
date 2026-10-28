@@ -3,8 +3,9 @@ import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: `Work | ${profile.identity.name}`,
+  title: "Work",
   description: `Experience timeline for ${profile.identity.name}.`,
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

@@ -3,8 +3,9 @@ import { profile } from "@/data/profile";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: `About | ${profile.identity.name}`,
+  title: "About",
   description: `Professional background and experience for ${profile.identity.name}.`,
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
