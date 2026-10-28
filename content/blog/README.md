@@ -1,7 +1,7 @@
 # Blog
 
 Cada post es un archivo `.mdx` en esta carpeta. El nombre puede llevar la fecha delante
-(`2026-11-04-como-implementar-ia.mdx`); la URL usa solo el slug (`/blog/como-implementar-ia`).
+(`2026-11-04-como-implementar-ia.mdx`); la URL usa solo el slug (`/es/blog/como-implementar-ia`).
 
 ## Frontmatter
 
@@ -24,3 +24,6 @@ draft: false            # true = no se publica aunque la fecha haya pasado
 
 Los posts con fecha futura o `draft: true` no aparecen en el blog, el sitemap ni el RSS.
 Las páginas se regeneran cada hora, así que un post fusionado con antelación sale solo en su fecha.
+En los previews de Vercel se ven también los posts programados, para poder revisarlos antes.
+
+Los enlaces internos dentro de un post usan la ruta en español: `/es/contacto`, `/es/servicios`, `/es/casos`.
