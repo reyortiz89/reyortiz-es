@@ -9,6 +9,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ScrollProgress, SpotlightTracker } from "@/components/effects";
 import { JsonLd } from "@/components/json-ld";
 import { Providers } from "@/components/providers";
 import { experience, profile } from "@/content/profile";
@@ -37,6 +38,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     authors: [{ name: site.legalName, url: site.url }],
     creator: site.legalName,
     formatDetection: { telephone: false },
+    // Google Search Console "HTML tag" verification: set the content value in Vercel.
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+      : {}),
   };
 }
 
@@ -98,6 +103,8 @@ export default async function LocaleLayout({
       <body className="min-h-dvh">
         <NextIntlClientProvider>
           <Providers>
+            <ScrollProgress />
+            <SpotlightTracker />
             <Header />
             <main id="main">{children}</main>
             <Footer />

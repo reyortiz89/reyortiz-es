@@ -3,7 +3,16 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
+const blogContent = ["./content/blog/**/*"];
+
 const nextConfig: NextConfig = {
+  // Blog routes read MDX from disk when they revalidate, so ship the content with them.
+  outputFileTracingIncludes: {
+    "/[locale]/blog": blogContent,
+    "/[locale]/blog/[slug]": blogContent,
+    "/blog/rss.xml": blogContent,
+    "/sitemap.xml": blogContent,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
   },

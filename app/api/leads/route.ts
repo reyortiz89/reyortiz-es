@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { leadSchema } from "@/lib/lead-schema";
 import { deliverLead, rateLimited, verifyTurnstile } from "@/lib/leads";
+import { VIDEO_ACCESS_COOKIE } from "@/lib/video-sources";
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null;
@@ -30,8 +31,20 @@ export async function POST(req: Request) {
     if (process.env.NODE_ENV === "production") {
       return NextResponse.json({ ok: false, error: "unavailable" }, { status: 503 });
     }
-    return NextResponse.json({ ok: true });
+  } else if (!delivered) {
+    return NextResponse.json({ ok: false, error: "delivery" }, { status: 502 });
   }
-  if (!delivered) return NextResponse.json({ ok: false, error: "delivery" }, { status: 502 });
-  return NextResponse.json({ ok: true });
+
+  const res = NextResponse.json({ ok: true });
+  // One registration unlocks every video in this browser.
+  if (parsed.data.source.startsWith("video")) {
+    res.cookies.set(VIDEO_ACCESS_COOKIE, "1", {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 60 * 60 * 24 * 365,
+      path: "/",
+    });
+  }
+  return res;
 }
