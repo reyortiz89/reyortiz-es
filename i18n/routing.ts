@@ -14,6 +14,8 @@ export const routing = defineRouting({
     "/resources/assessments/[slug]": { es: "/recursos/evaluaciones/[slug]", en: "/resources/assessments/[slug]" },
     "/resources/roi-calculator": { es: "/recursos/calculadora-roi", en: "/resources/roi-calculator" },
     "/videos": "/videos",
+    "/blog": "/blog",
+    "/blog/[slug]": "/blog/[slug]",
     "/about": { es: "/sobre-mi", en: "/about" },
     "/contact": { es: "/contacto", en: "/contact" },
     "/legal/[slug]": "/legal/[slug]",

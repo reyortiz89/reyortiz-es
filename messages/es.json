@@ -15,6 +15,7 @@
     "cases": "Casos",
     "resources": "Recursos",
     "videos": "Vídeos",
+    "blog": "Blog",
     "about": "Sobre mí",
     "contact": "Contacto",
     "cta": "Agenda una llamada",
@@ -346,6 +347,16 @@
     "close": "Cerrar",
     "ctaTitle": "¿Quieres aplicarlo en *tu empresa*?",
     "ctaText": "Cuéntame qué quieres conseguir y vemos juntos cómo llevarlo a tu negocio."
+  },
+  "blog": {
+    "title": "Blog",
+    "eyebrow": "Blog",
+    "heroTitle": "Blog",
+    "subtitle": "Noticias, guías y casos sobre software, automatización e IA para empresas.",
+    "empty": "Muy pronto, los primeros artículos.",
+    "readingTime": "{minutes} min de lectura",
+    "related": "Sigue leyendo",
+    "home": "Inicio"
   },
   "contact": {
     "title": "Hablemos de *tu proyecto*",

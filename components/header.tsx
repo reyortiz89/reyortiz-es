@@ -15,9 +15,10 @@ const items = [
   { href: "/cases", key: "cases" },
   { href: "/resources", key: "resources" },
   { href: "/videos", key: "videos" },
+  { href: "/blog", key: "blog", locale: "es" },
   { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
-] as const satisfies readonly { href: Pathname; key: string }[];
+] as const satisfies readonly { href: Pathname; key: string; locale?: "es" }[];
 
 export function Brand({ className }: { className?: string }) {
   return (
@@ -86,6 +87,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
+              locale={"locale" in item ? item.locale : undefined}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
                 "relative rounded-full px-3.5 py-2 text-sm transition-colors",
@@ -128,6 +130,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                locale={"locale" in item ? item.locale : undefined}
                 className="group flex items-center justify-between border-b border-border px-3 py-4 text-2xl font-medium tracking-tight text-foreground last:border-0"
               >
                 <span>

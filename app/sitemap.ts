@@ -3,6 +3,8 @@ import { assessments } from "@/content/assessments";
 import { cases } from "@/content/cases";
 import { services } from "@/content/services";
 import { routing } from "@/i18n/routing";
+import { getAllPosts } from "@/lib/blog";
+import { blogUrl } from "@/lib/blog-meta";
 import { absoluteUrl } from "@/lib/metadata";
 
 type Href = Parameters<typeof absoluteUrl>[0];
@@ -26,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const lastModified = new Date();
-  return hrefs.flatMap(({ href, priority }) =>
+  const pages = hrefs.flatMap(({ href, priority }) =>
     routing.locales.map((locale) => ({
       url: absoluteUrl(href, locale),
       lastModified,
@@ -36,4 +38,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     })),
   );
+
+  // The blog is Spanish only, so its URLs have no English alternate.
+  const posts = getAllPosts();
+  const blog: MetadataRoute.Sitemap = [
+    { url: blogUrl(), lastModified: posts[0] ? new Date(posts[0].updated ?? posts[0].date) : lastModified, priority: 0.8 },
+    ...posts.map((post) => ({
+      url: blogUrl(post.slug),
+      lastModified: new Date(post.updated ?? post.date),
+      priority: 0.7,
+    })),
+  ];
+
+  return [...pages, ...blog];
 }
