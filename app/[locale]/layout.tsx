@@ -38,6 +38,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     authors: [{ name: site.legalName, url: site.url }],
     creator: site.legalName,
     formatDetection: { telephone: false },
+    alternates: { types: { "application/rss+xml": new URL("/blog/rss.xml", site.url).toString() } },
+    // Google Search Console "HTML tag" verification: set the content value in Vercel.
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+      : {}),
   };
 }
 

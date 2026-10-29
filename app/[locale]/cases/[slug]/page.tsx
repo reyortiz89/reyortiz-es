@@ -152,6 +152,22 @@ export default async function CasePage({ params }: Props) {
           author: { "@id": `${site.url}/#person` },
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: site.name, item: absoluteUrl("/", locale) },
+            { "@type": "ListItem", position: 2, name: t("title"), item: absoluteUrl("/cases", locale) },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: item.client,
+              item: absoluteUrl({ pathname: "/cases/[slug]", params: { slug } }, locale),
+            },
+          ],
+        }}
+      />
     </>
   );
 }
