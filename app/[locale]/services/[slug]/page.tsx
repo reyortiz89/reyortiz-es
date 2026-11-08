@@ -154,6 +154,22 @@ export default async function ServicePage({ params }: Props) {
           serviceType: service.title.en,
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: site.name, item: absoluteUrl("/", locale) },
+            { "@type": "ListItem", position: 2, name: t("title"), item: absoluteUrl("/services", locale) },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: service.title[locale],
+              item: absoluteUrl({ pathname: "/services/[slug]", params: { slug } }, locale),
+            },
+          ],
+        }}
+      />
     </>
   );
 }

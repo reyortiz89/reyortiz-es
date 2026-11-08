@@ -1,19 +1,17 @@
 "use client";
 
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import Script from "next/script";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type FormEvent } from "react";
 import { Link } from "@/i18n/navigation";
 import { companySizes } from "@/lib/lead-schema";
 import { cn } from "@/lib/cn";
+import { Turnstile, turnstileToken } from "./turnstile";
 import { buttonVariants } from "./ui";
 
 type Status = "idle" | "sending" | "success" | "error" | "rate_limited" | "invalid";
 
-const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-
-const inputClass =
+export const inputClass =
   "mt-2 block w-full rounded-2xl border border-border bg-background px-4 py-3.5 text-foreground transition-colors placeholder:text-muted/70 hover:border-foreground/25 focus:border-foreground focus:outline-none focus:ring-4 focus:ring-accent/40 aria-invalid:border-danger";
 
 export function ContactForm({
@@ -51,7 +49,7 @@ export function ContactForm({
           message: data.get("message"),
           consent: data.get("consent") === "on",
           website: data.get("website") || undefined,
-          turnstileToken: data.get("cf-turnstile-response") || undefined,
+          turnstileToken: turnstileToken(data),
           locale,
           source: "contact",
           pageUrl: window.location.href,
@@ -173,12 +171,7 @@ export function ContactForm({
         </span>
       </label>
 
-      {turnstileSiteKey && (
-        <>
-          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
-          <div className="cf-turnstile" data-sitekey={turnstileSiteKey} data-language={locale} />
-        </>
-      )}
+      <Turnstile locale={locale} />
 
       {(status === "error" || status === "invalid" || status === "rate_limited") && (
         <p role="alert" className="text-sm text-danger">

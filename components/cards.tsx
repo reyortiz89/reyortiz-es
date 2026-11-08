@@ -21,8 +21,9 @@ export function ServiceCard({
   return (
     <Link
       href={{ pathname: "/services/[slug]", params: { slug: service.slug } }}
+      data-spotlight
       className={cn(
-        "group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-3xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-xl hover:shadow-black/5 sm:p-8",
+        "spotlight group relative flex h-full flex-col justify-between gap-8 overflow-hidden rounded-3xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-xl hover:shadow-black/5 sm:p-8",
         className,
       )}
     >
@@ -90,7 +91,8 @@ export function CaseCard({ item, locale, index = 0 }: { item: CaseStudy; locale:
   return (
     <Link
       href={{ pathname: "/cases/[slug]", params: { slug: item.slug } }}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
+      data-spotlight
+      className="spotlight group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
     >
       <div
         className={cn(

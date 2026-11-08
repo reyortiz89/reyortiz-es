@@ -6,13 +6,16 @@
     "cases": "Case studies",
     "about": "About",
     "contact": "Contact",
-    "resources": "Free resources for companies"
+    "resources": "Free resources for companies",
+    "videos": "Free videos on AI, automation and sales"
   },
   "nav": {
     "home": "Home",
     "services": "Services",
     "cases": "Case studies",
     "resources": "Resources",
+    "videos": "Videos",
+    "blog": "Blog",
     "about": "About",
     "contact": "Contact",
     "cta": "Book a call",
@@ -76,8 +79,8 @@
       }
     ],
     "resourcesTitle": "How automated is *your company*?",
-    "resourcesText": "Coming soon: answer 15 questions and get your score, the processes costing you the most and a prioritized action plan.",
-    "resourcesCta": "See free resources",
+    "resourcesText": "Answer 15 questions in 5 minutes and get your score, the processes costing you the most time and where to start automating.",
+    "resourcesCta": "Take the free audit",
     "aboutTitle": "Business and engineering at the *same table*",
     "aboutCta": "See my background",
     "faqTitle": "Frequently asked *questions*",
@@ -147,7 +150,8 @@
       "We review your processes and goals",
       "You leave with clear next steps"
     ],
-    "bookingAlt": "Prefer to write?"
+    "bookingAlt": "Prefer to write?",
+    "resourcesAll": "See all resources"
   },
   "services": {
     "title": "Services",
@@ -192,45 +196,167 @@
     "gallery": "At events and with clients"
   },
   "resources": {
-    "title": "Free resources",
-    "subtitle": "Tools to assess your company, plan your next steps and learn to grow with AI and automation.",
-    "notice": "We're preparing these resources. If you'd like early access, send me a message and I'll let you know.",
-    "items": [
-      {
-        "title": "Automation audit",
-        "text": "Find out which processes to automate first and how much time and money you can save.",
-        "tag": "Assessment"
-      },
-      {
-        "title": "Digital maturity",
-        "text": "Measure where your company stands on strategy, processes, data, tools and people.",
-        "tag": "Assessment"
-      },
-      {
-        "title": "AI roadmap builder",
-        "text": "Get a personalized 90-day plan with quick wins, initiatives and KPIs.",
-        "tag": "AI"
-      },
-      {
-        "title": "ROI calculator",
-        "text": "Calculate the yearly savings and payback of automating a process.",
-        "tag": "Calculator"
-      },
-      {
-        "title": "Videos & training",
-        "text": "Campaigns with Claude and Meta Ads, AI content, sales automation and more.",
-        "tag": "Video"
-      },
-      {
-        "title": "Templates",
-        "text": "Prompt packs, automation checklists and templates to specify your software.",
-        "tag": "Download"
-      }
-    ],
-    "cta": "Let me know when they're ready",
-    "heroTitle": "*Free* tools to make better decisions",
     "eyebrow": "Resources",
-    "ctaTitle": "Want *early access*?"
+    "title": "Free resources",
+    "heroTitle": "*Free* tools to make better decisions",
+    "subtitle": "Assess your company in minutes, work out the return of automating and learn from practical videos on AI, sales and operations.",
+    "back": "All resources",
+    "videosCount": "{count} hands-on episodes",
+    "items": {
+      "audit": {
+        "title": "Automation audit",
+        "text": "Find out which processes to automate first and how many hours you can win back every month.",
+        "tag": "Assessment · 5 min",
+        "cta": "Start the audit"
+      },
+      "maturity": {
+        "title": "Digital maturity",
+        "text": "Measure your level from 1 to 5 across strategy, processes, data, tools, people and customer.",
+        "tag": "Assessment · 4 min",
+        "cta": "Measure my maturity"
+      },
+      "roi": {
+        "title": "ROI calculator",
+        "text": "Work out the yearly savings and how many months an automation takes to pay back.",
+        "tag": "Calculator",
+        "cta": "Calculate"
+      },
+      "videos": {
+        "title": "Videos and training",
+        "text": "Meta Ads with Claude, AI content, automated sales, agents and more. Real cases, step by step.",
+        "tag": "Video",
+        "cta": "Browse the library"
+      },
+      "roadmap": {
+        "title": "AI roadmap generator",
+        "text": "A 90-day plan with quick wins, owners and KPIs.",
+        "tag": "AI",
+        "cta": ""
+      },
+      "templates": {
+        "title": "Templates",
+        "text": "Prompts, automation checklists and templates to spec your software.",
+        "tag": "Download",
+        "cta": ""
+      }
+    },
+    "ctaTitle": "Shall we go through it *together*?",
+    "ctaText": "If you already have your result or an idea in mind, in 30 minutes we'll see what to automate first and what you stand to gain."
+  },
+  "assessments": {
+    "eyebrowAudit": "Free audit",
+    "eyebrowMaturity": "Free assessment",
+    "minutes": "{minutes} minutes",
+    "questions": "{count} questions",
+    "reportByEmail": "Report by email",
+    "youGet": "What you'll get",
+    "areas": "What we assess",
+    "context": "To estimate your savings",
+    "questionOf": "{current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "outOf": "out of 100",
+    "resultTitle": "Your result",
+    "byArea": "Score by area",
+    "gateTitle": "Get your full report",
+    "gateText": "I'll email it to you straight away and you'll also see it right here.",
+    "gateItemsAudit": [
+      "Your top 5 automation priorities",
+      "Hours and euros you could save per year",
+      "Where to start in your weakest areas"
+    ],
+    "gateItemsMaturity": [
+      "Your maturity level explained",
+      "The 5 improvements with the most impact",
+      "Where to start to move up a level"
+    ],
+    "gateSubmit": "See my report",
+    "emailed": "Done. I've also sent the report to {email}.",
+    "priorities": "Your priorities",
+    "estimateTitle": "Estimated savings",
+    "hoursMonth": "{hours} h/month",
+    "eurosYear": "≈ €{amount} a year",
+    "estimateNote": "A rough estimate at €{cost}/hour. On a call we'll work it out with your real numbers.",
+    "whereToStart": "Where to start",
+    "reviewTitle": "Shall we review it together?",
+    "reviewText": "30 minutes to turn this report into a concrete plan. No strings attached.",
+    "reviewCta": "Book a free review",
+    "restart": "Start over"
+  },
+  "roi": {
+    "title": "Automation ROI calculator",
+    "eyebrow": "Free calculator",
+    "heroTitle": "What does *not automating* cost you?",
+    "subtitle": "Move the sliders with the numbers of one repetitive process and see how much you'd save per year and how fast the investment pays back.",
+    "fields": {
+      "people": "People doing the task",
+      "hours": "Hours per person per week",
+      "cost": "Cost per hour",
+      "share": "Share that can be automated",
+      "investment": "Estimated investment"
+    },
+    "hints": {
+      "people": "Who copies data, prepares reports, answers the same questions again and again…",
+      "hours": "Time each of them spends on that repetitive task.",
+      "cost": "Fully loaded hourly cost (gross salary plus employer costs).",
+      "share": "For repetitive processes it's usually between 50% and 80%.",
+      "investment": "Cost of building the automation. A typical project runs from €3,000 to €15,000."
+    },
+    "savingsYear": "Estimated yearly savings",
+    "hoursYear": "{hours} hours freed up per year",
+    "payback": "Pays back in",
+    "immediate": "Immediately",
+    "months": "{months} months",
+    "roiYear": "First-year ROI",
+    "note": "A rough estimate based on {weeks} working weeks a year. It leaves out the value of faster replies, fewer errors and growing without hiring.",
+    "ctaTitle": "Let's use *real numbers*",
+    "ctaText": "In 30 minutes we'll review your process and I'll tell you what it would cost to automate and what return to expect."
+  },
+  "videos": {
+    "eyebrow": "Videos",
+    "heroTitle": "Learn to grow with *AI* and automation",
+    "subtitle": "Hands-on videos with real cases: campaigns with Claude, AI content, automated sales and operations without spreadsheets.",
+    "steps": [
+      "Pick a topic",
+      "Leave your details once",
+      "Watch the video straight away"
+    ],
+    "all": "All",
+    "categories": {
+      "marketing": "Marketing",
+      "sales": "Sales",
+      "ai": "AI",
+      "operations": "Operations",
+      "strategy": "Strategy"
+    },
+    "featured": "Featured",
+    "comingSoon": "Coming soon",
+    "watch": "Watch video",
+    "notify": "Notify me",
+    "ai": "AI",
+    "unavailable": "This video isn't available right now. Please try again later.",
+    "gateTitle": "Watch the video for free",
+    "gateText": "Leave your details and the video opens straight away. I only ask once: after that you can watch the whole library.",
+    "gateSubmit": "Watch now",
+    "waitTitle": "This video is in production",
+    "waitText": "Leave your details and I'll email you as soon as it's out. You'll also get access to every video in the library.",
+    "waitSubmit": "Notify me",
+    "doneTitle": "You're on the list!",
+    "doneText": "I'll email you at {email} as soon as it's out.",
+    "doneAgain": "You're already on the list for this video. I'll let you know as soon as it's out.",
+    "close": "Close",
+    "ctaTitle": "Want to apply it in *your company*?",
+    "ctaText": "Tell me what you want to achieve and we'll work out together how to bring it to your business."
+  },
+  "blog": {
+    "title": "Blog",
+    "eyebrow": "Blog",
+    "heroTitle": "Blog",
+    "subtitle": "News, guides and cases on software, automation and AI for companies (in Spanish).",
+    "empty": "First articles coming soon.",
+    "readingTime": "{minutes} min read",
+    "related": "Keep reading",
+    "home": "Home"
   },
   "contact": {
     "title": "Let's talk about *your project*",

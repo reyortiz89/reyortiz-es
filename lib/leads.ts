@@ -1,6 +1,7 @@
 import "server-only";
 import { createTransport } from "nodemailer";
 import { site } from "@/content/site";
+import { notificationEmail, visitorEmail } from "./emails";
 import type { Lead } from "./lead-schema";
 
 /**
@@ -27,30 +28,6 @@ function transporter() {
   });
 }
 
-function escapeHtml(input: string) {
-  return input
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function leadRows(lead: Lead) {
-  return [
-    ["Nombre", lead.name],
-    ["Email", lead.email],
-    ["Teléfono", lead.phone],
-    ["Empresa", lead.company],
-    ["Tamaño", lead.companySize],
-    ["Interés", lead.interest],
-    ["Idioma", lead.locale],
-    ["Origen", lead.source],
-    ["Página", lead.pageUrl],
-    ["UTM", lead.utm && Object.keys(lead.utm).length ? JSON.stringify(lead.utm) : ""],
-  ].filter(([, v]) => v) as [string, string][];
-}
-
 async function sendToWebhook(lead: Lead): Promise<boolean | null> {
   const url = process.env.LEADS_WEBHOOK_URL;
   if (!url) return null;
@@ -62,6 +39,7 @@ async function sendToWebhook(lead: Lead): Promise<boolean | null> {
     companySize: lead.companySize,
     interest: lead.interest,
     message: lead.message,
+    assessment: lead.assessment,
     locale: lead.locale,
     source: lead.source,
     pageUrl: lead.pageUrl,
@@ -86,32 +64,14 @@ async function sendEmails(lead: Lead): Promise<boolean | null> {
   const to = process.env.LEADS_NOTIFY_TO || from;
   const fromName = process.env.SMTP_FROM_NAME || "Rey Ortiz";
   const mailer = transporter();
-  const rows = leadRows(lead);
 
   // Sent from our own mailbox (SPF/DKIM aligned); the visitor goes in Reply-To.
-  await mailer.sendMail({
-    from: { name: "reyortiz.es", address: from },
-    to,
-    replyTo: lead.email,
-    subject: `Nuevo lead (${lead.source}): ${lead.name}${lead.company ? ` · ${lead.company}` : ""}`,
-    text: `${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n${lead.message}\n`,
-    html: `<div style="font-family:system-ui,sans-serif;line-height:1.5">
-      <table>${rows.map(([k, v]) => `<tr><td style="padding-right:12px;color:#555">${k}</td><td>${escapeHtml(v)}</td></tr>`).join("")}</table>
-      <hr/><p style="white-space:pre-wrap">${escapeHtml(lead.message)}</p></div>`,
-  });
+  await mailer.sendMail({ from: { name: "reyortiz.es", address: from }, to, replyTo: lead.email, ...notificationEmail(lead) });
 
-  // Confirmation to the visitor. Failure here should not fail the lead.
-  const isEs = lead.locale === "es";
+  // Confirmation, report or video access for the visitor. Failure here should not fail the lead.
   await mailer
-    .sendMail({
-      from: { name: fromName, address: from },
-      to: lead.email,
-      subject: isEs ? "He recibido tu mensaje" : "I've received your message",
-      text: isEs
-        ? `Hola ${lead.name},\n\nGracias por escribirme. He recibido tu mensaje y te responderé lo antes posible con los siguientes pasos.\n\nUn saludo,\nRey Ortiz\nhttps://reyortiz.es`
-        : `Hi ${lead.name},\n\nThanks for reaching out. I've received your message and will get back to you as soon as possible with next steps.\n\nBest,\nRey Ortiz\nhttps://reyortiz.es`,
-    })
-    .catch((err) => console.error("[leads] confirmation email failed", err));
+    .sendMail({ from: { name: fromName, address: from }, to: lead.email, ...visitorEmail(lead) })
+    .catch((err) => console.error("[leads] visitor email failed", err));
 
   return true;
 }
