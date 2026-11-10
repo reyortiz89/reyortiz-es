@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { AttributionTracker } from "@/components/attribution";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ScrollProgress, SpotlightTracker } from "@/components/effects";
@@ -111,6 +112,7 @@ export default async function LocaleLayout({
           </Providers>
         </NextIntlClientProvider>
         <JsonLd data={personLd} />
+        <AttributionTracker />
         <Analytics />
       </body>
     </html>

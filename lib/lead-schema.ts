@@ -28,6 +28,9 @@ export const leadSchema = z
     source: z.string().trim().max(80),
     pageUrl: z.string().trim().max(500).optional(),
     utm: z.record(z.string(), z.string().max(200)).optional(),
+    /** First touch: where the visitor came from and the first page they saw. */
+    referrer: z.string().trim().max(500).optional(),
+    landingPage: z.string().trim().max(500).optional(),
     /** Answers of a self-assessment, to build the report. */
     assessment: z
       .object({

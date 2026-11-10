@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { mdxComponents } from "@/components/mdx";
 import { Reveal } from "@/components/motion";
 import { PostCard } from "@/components/post-card";
+import { PostResources } from "@/components/post-resources";
 import { BackLink, Container, PageHero, Section } from "@/components/ui";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
@@ -117,6 +118,8 @@ export default async function PostPage({ params }: Props) {
           <article className="post-body mx-auto max-w-3xl">
             <MDXRemote source={post.content} components={mdxComponents} />
           </article>
+
+          <PostResources />
 
           {related.length > 0 && (
             <aside className="mt-24 border-t border-border pt-12">

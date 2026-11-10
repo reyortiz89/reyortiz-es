@@ -2,9 +2,11 @@
 
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { track } from "@vercel/analytics";
 import { useState, type FormEvent } from "react";
 import { Link } from "@/i18n/navigation";
 import { companySizes } from "@/lib/lead-schema";
+import { getAttribution } from "@/lib/attribution";
 import { cn } from "@/lib/cn";
 import { Turnstile, turnstileToken } from "./turnstile";
 import { buttonVariants } from "./ui";
@@ -30,8 +32,7 @@ export function ContactForm({
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const search = new URLSearchParams(window.location.search);
-    const utm = Object.fromEntries([...search.entries()].filter(([k]) => k.startsWith("utm_")));
+    const attribution = getAttribution();
 
     setStatus("sending");
     setInvalid([]);
@@ -53,11 +54,12 @@ export function ContactForm({
           locale,
           source: "contact",
           pageUrl: window.location.href,
-          utm,
+          ...attribution,
         }),
       });
       const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string; fields?: string[] };
       if (res.ok && json.ok) {
+        track("lead", { source: "contact" });
         setStatus("success");
         form.reset();
       } else if (json.error === "invalid") {
