@@ -38,6 +38,7 @@ export function BookCallButton({
         href={site.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
+        data-track="book_call"
         className={cn(buttonVariants[variant], className)}
       >
         {content}
