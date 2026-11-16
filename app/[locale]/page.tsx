@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BookCallButton } from "@/components/book-call";
 import { CaseCard, ServiceCard } from "@/components/cards";
 import { BookingEmbed } from "@/components/booking-embed";
+import { ScrollLine, Tilt } from "@/components/effects";
 import { JsonLd } from "@/components/json-ld";
 import { Marquee } from "@/components/marquee";
 import { CountUp, Reveal } from "@/components/motion";
@@ -102,54 +103,56 @@ export default async function HomePage({ params }: Props) {
           </div>
 
           <Reveal delay={0.1} className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border bg-surface-2 shadow-2xl shadow-black/10">
-              <Image
-                src="/images/rey-ortiz-evento-fintech.webp"
-                alt="Rey Ortiz"
-                fill
-                priority
-                sizes="(min-width: 1024px) 36vw, 90vw"
-                className="object-cover object-[50%_35%]"
-              />
-              <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute inset-x-5 bottom-5 text-white">
-                <p className="text-lg font-medium">Rey Ortiz</p>
-                <p className="text-sm text-white/75">{t("heroRole")}</p>
+            <Tilt>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border bg-surface-2 shadow-2xl shadow-black/10">
+                <Image
+                  src="/images/rey-ortiz-evento-fintech.webp"
+                  alt="Rey Ortiz"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 36vw, 90vw"
+                  className="object-cover object-[50%_35%]"
+                />
+                <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-x-5 bottom-5 text-white">
+                  <p className="text-lg font-medium">Rey Ortiz</p>
+                  <p className="text-sm text-white/75">{t("heroRole")}</p>
+                </div>
               </div>
-            </div>
 
-            {heroCase?.metric && (
-              <div className="absolute -left-4 top-10 animate-float rounded-2xl border border-border bg-surface/90 p-4 shadow-xl backdrop-blur-xl sm:-left-10">
-                <p className="text-3xl font-medium tracking-tight text-foreground">{heroCase.metric.value}</p>
-                <p className="text-xs text-muted">{heroCase.metric.label[locale]}</p>
-                <p className="mt-2 text-[11px] font-medium uppercase tracking-wider text-accent-ink">MBE Spain</p>
-              </div>
-            )}
+              {heroCase?.metric && (
+                <div className="absolute -left-4 top-10 animate-float rounded-2xl border border-border bg-surface/90 p-4 shadow-xl backdrop-blur-xl sm:-left-10">
+                  <p className="text-3xl font-medium tracking-tight text-foreground">{heroCase.metric.value}</p>
+                  <p className="text-xs text-muted">{heroCase.metric.label[locale]}</p>
+                  <p className="mt-2 text-[11px] font-medium uppercase tracking-wider text-accent-ink">MBE Spain</p>
+                </div>
+              )}
 
-            <div
-              className="absolute -right-3 bottom-24 animate-float rounded-2xl border border-border bg-surface/90 p-3 shadow-xl backdrop-blur-xl [animation-delay:-3s] sm:-right-8"
-              aria-hidden
-            >
-              <p className="mb-2 flex items-center gap-1.5 text-[11px] font-medium text-muted">
-                <span className="size-1.5 animate-pulse-dot rounded-full bg-emerald-500" />
-                {t("heroWorkflow")}
-              </p>
-              <div className="flex items-center gap-1.5 text-[11px] font-medium">
-                {["Lead", locale === "es" ? "IA" : "AI", "CRM"].map((n, i) => (
-                  <span key={n} className="flex items-center gap-1.5">
-                    <span
-                      className={cn(
-                        "rounded-lg border px-2 py-1",
-                        i === 1 ? "border-accent bg-accent text-accent-foreground" : "border-border bg-background",
-                      )}
-                    >
-                      {n}
+              <div
+                className="absolute -right-3 bottom-24 animate-float rounded-2xl border border-border bg-surface/90 p-3 shadow-xl backdrop-blur-xl [animation-delay:-3s] sm:-right-8"
+                aria-hidden
+              >
+                <p className="mb-2 flex items-center gap-1.5 text-[11px] font-medium text-muted">
+                  <span className="size-1.5 animate-pulse-dot rounded-full bg-emerald-500" />
+                  {t("heroWorkflow")}
+                </p>
+                <div className="flex items-center gap-1.5 text-[11px] font-medium">
+                  {["Lead", locale === "es" ? "IA" : "AI", "CRM"].map((n, i) => (
+                    <span key={n} className="flex items-center gap-1.5">
+                      <span
+                        className={cn(
+                          "rounded-lg border px-2 py-1",
+                          i === 1 ? "border-accent bg-accent text-accent-foreground" : "border-border bg-background",
+                        )}
+                      >
+                        {n}
+                      </span>
+                      {i < 2 && <ArrowRight className="size-3 text-muted" />}
                     </span>
-                    {i < 2 && <ArrowRight className="size-3 text-muted" />}
-                  </span>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Tilt>
           </Reveal>
         </Container>
       </section>
@@ -301,21 +304,23 @@ export default async function HomePage({ params }: Props) {
               <BookCallButton className="mt-10">{tc("bookCall")}</BookCallButton>
             </Reveal>
           </div>
-          <ol>
-            {process.map((step, i) => (
-              <Reveal key={step.title} delay={i * 0.05}>
-                <li className="group grid grid-cols-[auto_1fr] gap-6 border-t border-border py-10 sm:gap-10">
-                  <span className="w-14 font-display text-5xl leading-none text-muted transition-colors group-hover:text-accent-ink sm:w-20 sm:text-6xl">
-                    0{i + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">{step.title}</h3>
-                    <p className="mt-3 max-w-md text-pretty text-lg leading-relaxed text-muted">{step.text}</p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+          <ScrollLine>
+            <ol className="pl-6 sm:pl-10">
+              {process.map((step, i) => (
+                <Reveal key={step.title} delay={i * 0.05}>
+                  <li className="group grid grid-cols-[auto_1fr] gap-6 border-t border-border py-10 sm:gap-10">
+                    <span className="w-14 font-display text-5xl leading-none text-muted transition-colors group-hover:text-accent-ink sm:w-20 sm:text-6xl">
+                      0{i + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-2xl font-medium tracking-tight sm:text-3xl">{step.title}</h3>
+                      <p className="mt-3 max-w-md text-pretty text-lg leading-relaxed text-muted">{step.text}</p>
+                    </div>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+          </ScrollLine>
         </Container>
       </Section>
 
@@ -330,10 +335,15 @@ export default async function HomePage({ params }: Props) {
                   <Accent text={t("resourcesTitle")} />
                 </h2>
                 <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-muted">{t("resourcesText")}</p>
-                <ButtonLink href="/resources" className="mt-10">
-                  {t("resourcesCta")}
-                  <ArrowRight className="size-4" aria-hidden />
-                </ButtonLink>
+                <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <ButtonLink href={{ pathname: "/resources/assessments/[slug]", params: { slug: "automation-audit" } }}>
+                    {t("resourcesCta")}
+                    <ArrowRight className="size-4" aria-hidden />
+                  </ButtonLink>
+                  <Link href="/resources" className="text-sm font-medium underline-offset-4 hover:underline">
+                    {t("resourcesAll")}
+                  </Link>
+                </div>
               </div>
 
               <div aria-hidden className="relative">

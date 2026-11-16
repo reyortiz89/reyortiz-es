@@ -13,6 +13,8 @@ export async function Footer() {
     { href: "/services", label: t("nav.services") },
     { href: "/cases", label: t("nav.cases") },
     { href: "/resources", label: t("nav.resources") },
+    { href: "/videos", label: t("nav.videos") },
+    { href: "/blog", label: t("nav.blog"), locale: "es" },
     { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
   ] as const;
@@ -39,7 +41,11 @@ export async function Footer() {
           <ul className="mt-5 space-y-3">
             {explore.map((item) => (
               <li key={item.href}>
-                <Link className="text-ink-foreground/80 transition-colors hover:text-accent" href={item.href}>
+                <Link
+                  className="text-ink-foreground/80 transition-colors hover:text-accent"
+                  href={item.href}
+                  locale={"locale" in item ? item.locale : undefined}
+                >
                   {item.label}
                 </Link>
               </li>
