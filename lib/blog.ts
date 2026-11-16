@@ -57,8 +57,11 @@ function readPost(file: string): Post {
   };
 }
 
+// Vercel preview deployments also show scheduled posts so they can be reviewed before their date.
+const showScheduled = process.env.VERCEL_ENV === "preview";
+
 function isPublished(post: PostMeta, now = new Date()) {
-  return !post.draft && new Date(post.date) <= now;
+  return !post.draft && (showScheduled || new Date(post.date) <= now);
 }
 
 export function getAllPosts(): Post[] {
@@ -81,4 +84,14 @@ export function getRelatedPosts(post: PostMeta, limit = 3): Post[] {
     .filter((other) => other.slug !== post.slug)
     .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
     .slice(0, limit);
+}
+
+export function readingMinutes(content: string) {
+  return Math.max(1, Math.round(content.split(/\s+/).length / 220));
+}
+
+export function formatPostDate(date: string) {
+  return new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+    new Date(date),
+  );
 }

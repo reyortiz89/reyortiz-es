@@ -1,6 +1,6 @@
-import { profile } from "@/data/profile";
+import { site } from "@/content/site";
 import { getAllPosts } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { blogUrl, rssUrl } from "@/lib/blog-meta";
 
 export const revalidate = 3600;
 
@@ -11,7 +11,7 @@ function escape(value: string) {
 export function GET() {
   const items = getAllPosts()
     .map((post) => {
-      const url = `${SITE_URL}/blog/${post.slug}`;
+      const url = blogUrl(post.slug);
       return `    <item>
       <title>${escape(post.title)}</title>
       <link>${url}</link>
@@ -24,18 +24,17 @@ export function GET() {
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${escape(`Blog de ${profile.identity.name}`)}</title>
-    <link>${SITE_URL}/blog</link>
-    <description>Inteligencia artificial y proyectos para empresas.</description>
+    <title>${escape(`Blog · ${site.name}`)}</title>
+    <link>${blogUrl()}</link>
+    <atom:link href="${rssUrl}" rel="self" type="application/rss+xml" />
+    <description>${escape(`Artículos y noticias de ${site.name}.`)}</description>
     <language>es</language>
 ${items}
   </channel>
 </rss>
 `;
 
-  return new Response(xml, {
-    headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
-  });
+  return new Response(xml, { headers: { "Content-Type": "application/rss+xml; charset=utf-8" } });
 }
