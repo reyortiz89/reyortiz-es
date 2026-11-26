@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { getVideo } from "@/content/videos";
 import { scoreAssessment, HOURLY_COST, type AssessmentResult } from "./assessment-score";
 import type { Lead } from "./lead-schema";
+import { scoreLead } from "./lead-score";
 import { absoluteUrl } from "./metadata";
 
 /*
@@ -92,8 +93,12 @@ export function notificationEmail(lead: Lead): Email {
     ["Origen", lead.source],
     ["Página", lead.pageUrl],
     ["UTM", lead.utm && Object.keys(lead.utm).length ? JSON.stringify(lead.utm) : ""],
+    ["Llegó desde", lead.referrer],
+    ["Primera página", lead.landingPage],
   ].filter(([, v]) => v) as [string, string][];
 
+  const score = scoreLead(lead);
+  const priority = `Prioridad ${score.grade} (${score.points} puntos)`;
   const [kind, slug = ""] = lead.source.split(":");
   let extraText = "";
   let extraHtml = "";
@@ -117,10 +122,10 @@ export function notificationEmail(lead: Lead): Email {
     .join("")}</table>`;
 
   return {
-    subject: `Nuevo lead · ${label} · ${lead.name}${lead.company ? ` (${lead.company})` : ""}`,
-    text: `${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n${lead.message ? `\n${lead.message}\n` : ""}${extraText}`,
+    subject: `Nuevo lead [${score.grade}] · ${label} · ${lead.name}${lead.company ? ` (${lead.company})` : ""}`,
+    text: `${priority}: ${score.reasons.join("; ")}\n\n${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n${lead.message ? `\n${lead.message}\n` : ""}${extraText}`,
     html: layout(
-      `<p style="margin:0 0 16px;font-size:18px;font-weight:600">${escapeHtml(label)}</p>${table}${
+      `<p style="margin:0 0 16px;font-size:18px;font-weight:600">${escapeHtml(label)}</p><p style="margin:0 0 16px;font-size:13px;color:${muted}"><strong style="color:${ink}">${priority}</strong> · ${escapeHtml(score.reasons.join(" · "))}</p>${table}${
         lead.message ? `<p style="white-space:pre-wrap;margin:20px 0 0">${escapeHtml(lead.message)}</p>` : ""
       }${extraHtml}`,
     ),

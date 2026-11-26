@@ -3,6 +3,7 @@ import { createTransport } from "nodemailer";
 import { site } from "@/content/site";
 import { notificationEmail, visitorEmail } from "./emails";
 import type { Lead } from "./lead-schema";
+import { scoreLead } from "./lead-score";
 
 /**
  * Lead delivery: every captured lead is emailed to Rey through the SMTP
@@ -44,6 +45,9 @@ async function sendToWebhook(lead: Lead): Promise<boolean | null> {
     source: lead.source,
     pageUrl: lead.pageUrl,
     utm: lead.utm,
+    referrer: lead.referrer,
+    landingPage: lead.landingPage,
+    score: scoreLead(lead),
   };
   const res = await fetch(url, {
     method: "POST",

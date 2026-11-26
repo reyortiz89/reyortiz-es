@@ -2,10 +2,12 @@
 
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { track } from "@vercel/analytics";
 import { useState, type FormEvent } from "react";
 import { site } from "@/content/site";
 import { Link } from "@/i18n/navigation";
 import { companySizes } from "@/lib/lead-schema";
+import { getAttribution } from "@/lib/attribution";
 import { cn } from "@/lib/cn";
 import { inputClass } from "./contact-form";
 import { Turnstile, turnstileToken } from "./turnstile";
@@ -42,8 +44,7 @@ export function LeadCaptureForm({
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const search = new URLSearchParams(window.location.search);
-    const utm = Object.fromEntries([...search.entries()].filter(([k]) => k.startsWith("utm_")));
+    const attribution = getAttribution();
     const lead = { name: String(data.get("name") ?? "").trim(), email: String(data.get("email") ?? "").trim() };
 
     // Flag every missing field at once; the server validates again.
@@ -76,12 +77,13 @@ export function LeadCaptureForm({
           locale,
           source,
           pageUrl: window.location.href,
-          utm,
+          ...attribution,
           ...extra,
         }),
       });
       const json = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string; fields?: string[] };
       if (res.ok && json.ok) {
+        track("lead", { source });
         setStatus("idle");
         onSuccess(lead);
       } else if (json.error === "invalid") {
